@@ -1,0 +1,19 @@
+h1{
+	justify-content: center;
+	display: flex;
+	color: Black;
+	font-size: 50px;	
+	text-decoration: none;
+
+}
+
+a{
+	background-color: navajowhite;
+	text-decoration: none;
+	font-size: 30px;
+	color: darkgreen;
+}
+
+#idAcrea {
+	color: blue;
+}
