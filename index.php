@@ -15,24 +15,23 @@
 		case "Voiture":
 			require_once 'modules/mod_voiture/mod_voiture.php';
 			$module = new modVoiture();
-			$affichage = $module->affichage;
 			break;
 		case "listeVoiture":
 			require_once 'modules/mod_listeVoiture/mod_listeVoiture.php';
 			$module = new modListeVoiture();
-			$affichage = $module->affichage;
 			break;
 		case "Connexion":
 			require_once 'modules/mod_connexion/mod_connexion.php';
 			$module = new modConnexion();
-			$affichage = $module->affichage;
 			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
-			// $module = new modAccueil();
-			// $affichage = $module->affichage;
-			break;
+			$module = new modAccueil();
+		 	break;
 	}
+
+	// la variable $affichage qui contient le code HTML du module s'initialise de cette manière désormais
+	$affichage = $module->getControleur()->getVue()->getAffichage();
 
 	require_once 'composants/comp_menu.php';
 	$compMenu = new compMenu();

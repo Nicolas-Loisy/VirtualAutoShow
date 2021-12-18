@@ -7,7 +7,7 @@
         protected $controleur;
 
         public function getControleur() {
-            return $controleur;
+            return $this->controleur;
         }
     }
 

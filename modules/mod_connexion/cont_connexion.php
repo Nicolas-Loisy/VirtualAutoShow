@@ -1,37 +1,49 @@
 <?php
 
-	if (!defined('CONST_INCLUDE'))
-		die('Accès non-autorisé.');
-	
-	require_once 'cont_generique.php';
-	include 'vue_connexion.php';
-	include 'modele_connexion.php';
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
 
-	class ContConnexion extends ContGenerique {
-		public $action;
-		
-		public function __construct () {
-			$this->vue = new Vueconnexion();
-			$this->modele = new Modeleconnexion();
+require_once 'cont_generique.php';
+include 'vue_connexion.php';
+include 'modele_connexion.php';
 
-			if(isset($_GET['action'])){
-				$this->action = $_GET['action'];
-			}	
-			else if(!isset($_GET['connexion'])){
-				$this->action= "bienvenue";
-			}				
-		}
+class ContConnexion extends ContGenerique {
+    public $action;
 
-		public function form_connexion(){
-        	$this->vue->form_connexion(); 
+    public function __construct () {
+        $this->vue = new Vueconnexion();
+        $this->modele = new Modeleconnexion();
+
+        $this->action = $_GET['action'];
+
+        switch ($this->action) {
+            case 'connexion':
+                if (!isset($_SESSION['login'])) {
+                    $this->form_connexion();
+                } else {
+                    echo "Vous êtes déjà connecté : ";
+                    echo $_SESSION['login'];
+                }
+                break;
+            case 'connecter':
+                $this->connexion();
+                break;
+            case 'deconnexion':
+                $this->deconnexion();
+                break;
         }
+    }
 
-        public function connexion(){
-        	$this->modele->connexion();
-        }
-        
-        public function deconnexion(){
-        	$this->modele->deconnexion();
-        }
-	}
+    public function form_connexion(){
+        $this->vue->form_connexion();
+    }
+
+    public function connexion(){
+        $this->modele->connexion();
+    }
+
+    public function deconnexion(){
+        $this->modele->deconnexion();
+    }
+}
 ?>
