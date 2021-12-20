@@ -5,7 +5,7 @@
 	session_start();
 	require_once 'connexion.php';
 	Connexion::initConnexion();
-		
+	//commit
 	$affichage = null;
 	$choixModule = null;
 	if (isset($_GET['module']))
