@@ -3,10 +3,14 @@ include 'modele_menu.php';
 include 'vue_menu.php';
 
 class ContMenu{
-    public $vue_menu;
+    protected $vue;
 
     public function __construct () {
-        $this->vue_menu = new Vuemenu();
+        $this->vue = new Vuemenu();
+    }
+
+    public function afficherMenu() {
+        $this->vue->afficherMenu();
     }
 }
 ?>

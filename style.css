@@ -1,19 +1,27 @@
-h1{
-	justify-content: center;
-	display: flex;
-	color: Black;
-	font-size: 50px;	
-	text-decoration: none;
-
+#hero {
+	background-color: #1c0068;
+	padding-top: 50px;
 }
 
-a{
-	background-color: navajowhite;
-	text-decoration: none;
-	font-size: 30px;
-	color: darkgreen;
+#carouselExampleIndicators {
+	width: 50%;
+	margin: auto;
 }
 
-#idAcrea {
-	color: blue;
+img {
+	border-radius: 6px;
+}
+
+h2 {
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+}
+
+h3 {
+	color: white;
+}
+
+#recommandation {
+	height: 1080px;
 }
