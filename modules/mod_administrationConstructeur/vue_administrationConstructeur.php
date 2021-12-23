@@ -57,7 +57,7 @@
 
                     <div class="row g-4">
                         <div class="form-group col-auto">
-                            <label for="selNbPlace" class="form-label">Selection nombre de places</label>
+                            <label for="selNbPlace" class="form-label">Sélection nombre de places</label>
                             <select class="form-control" name="nbPlace" id="selNbPlace">
                                 <option>1</option>
                                 <option>2</option>
@@ -83,18 +83,18 @@
                         </div>
 
                         <div class="col-auto">
-                            <label for="inputVitesseMax" class="form-label">Vitesse max</label>
+                            <label for="inputVitesseMax" class="form-label">Vitesse max (km/h)</label>
                             <input type="number" class="form-control" name="vitesseMax" id="inputVitesseMax" required>
                         </div>
 
                         <div class="col-auto">
-                            <label for="inputAutonomie" class="form-label">Autonomie</label>
+                            <label for="inputAutonomie" class="form-label">Autonomie (km)</label>
                             <input type="number" class="form-control" name="autonomie" id="inputAutonomie" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="sel1" class="form-label">Selection moteur</label>
+                        <label for="sel1" class="form-label">Sélection moteur</label>
                         <select class="form-select" name="moteur" aria-label="Default select example">
                           <option selected>Ouvrir le menu de sélection</option>
                           <option value="Essence SP95">Essence SP95</option>
@@ -135,7 +135,7 @@
 
                     <div class="row g-4">
                         <div class="form-group col-auto">
-                          <label for="selNbPlace" class="form-label">Selection nombre de places</label>
+                          <label for="selNbPlace" class="form-label">Sélection nombre de places</label>
                           <select class="form-control" name="nbPlace" id="selNbPlace">
                             <option>1</option>
                             <option>2</option>
@@ -161,18 +161,18 @@
                         </div>
                         
                         <div class="col-auto">
-                            <label for="inputVitesseMax" class="form-label">Vitesse max</label>
+                            <label for="inputVitesseMax" class="form-label">Vitesse max (km/h)</label>
                             <input type="number" class="form-control" name="vitesseMax" id="inputVitesseMax" required>
                         </div>
 
                         <div class="col-auto">
-                            <label for="inputAutonomie" class="form-label">Autonomie</label>
+                            <label for="inputAutonomie" class="form-label">Autonomie (km)</label>
                             <input type="number" class="form-control" name="autonomie" id="inputAutonomie" required>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="sel1" class="form-label">Selection moteur</label>
+                        <label for="sel1" class="form-label">Sélection moteur</label>
                         <select class="form-select" name="moteur" aria-label="Default select example">
                           <option selected>Ouvrir le menu de sélection</option>
                           <option value="Essence SP95">Essence SP95</option>

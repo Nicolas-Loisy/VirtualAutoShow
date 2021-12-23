@@ -10,7 +10,7 @@
 	}*/
 
 	require_once "mod_generique.php";
-
+    include 'cont_administrationConstructeur.php';
 	class ModAdministrationConstructeur extends ModGenerique {
 		public $affichage;
 		/*
@@ -18,10 +18,7 @@
 			Connexion::initConnexion();
 		*/
 		public function __construct (){
-			include 'cont_administrationConstructeur.php';
 			$this->controleur = new ContAdministrationConstructeur();
-
-			$this->affichage = $this->controleur->getVue()->getAffichage();
 		}	
 	}
 ?>
