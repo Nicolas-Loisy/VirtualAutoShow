@@ -12,6 +12,10 @@ class ContAccueil extends ContGenerique {
 
         $this->vue->affichagePage();
     }
+
+    public function lienFeuilleCSS() {
+        $this->vue->lienFeuilleCSS();
+    }
 }
 
 ?>

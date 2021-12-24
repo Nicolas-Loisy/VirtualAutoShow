@@ -57,6 +57,12 @@ class VueAccueil extends VueGenerique {
         </section>
         <?php
     }
+
+    public function lienFeuilleCSS() {
+        ?>
+        <link rel="stylesheet" type="text/css" href="modules/mod_accueil/style.css">
+        <?php
+    }
 }
 
 ?>
