@@ -2,6 +2,7 @@
 class VueMenu{
 
     public function __construct (){
+
     }
 
     public function afficherMenu() {
@@ -45,6 +46,7 @@ class VueMenu{
             </div>
         </nav>
         <?php
+
     }
 }
 ?>

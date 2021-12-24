@@ -5,9 +5,10 @@
 	class Connexion	{	
 		protected static $bdd;
 
-		public static function initConnexion()
-		{
-			self::$bdd = new PDO("mysql:host=localhost; dbname=VirtualAutoShow; port=3306", "root", "");
+
+		public static function initConnexion(){
+			//self::$bdd = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr; dbname=dutinfopw201632; port=mon_port", "dutinfopw201632", "jynuhuby");
+			self::$bdd = new PDO("mysql:host=localhost; dbname=localprojweb; port=3306", "root", "");
 		}
 	}
 ?>
