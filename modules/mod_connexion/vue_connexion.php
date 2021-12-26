@@ -10,7 +10,7 @@
         
         public function form_connexion(){
             ?>
-            <form action="index.php?module=Connexion&action=connecter" method="post">
+            <form action="index.php?module=Connexion&action=connexion" method="post">
                 <p>Identifiant :</p>
                 <input type="text" name="nomUtilisateur">
                 <p>Mot de passe :</p>
@@ -18,46 +18,52 @@
                 <p></p>
                 <input type="submit" name="boutonEnvoie" value="Se connecter">
             </form>
-            <a id="lienInscription" href=index.php?action=Connexion&action=inscription>Nouveau ? Inscrivez-vous ici</a>
+            <a class="nav-link" href="index.php?module=Connexion&action=inscription">Nouveau ? <br>Inscrivez-vous ici</a>
             <?php
             
         }
 
-        public function form_inscription() {
+
+
+        public function form_inscription(){
             ?>
-            <form class="row g-3" action="index.php?module=Connexion&action=inscription" method="post">
-                <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputLogin" class="form-label">Login</label>
-                    <input type="text" class="form-control" id="inputLogin">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputName" class="form-label">Nom</label>
-                    <input type="text" class="form-control" id="inputName">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputNumber" class="form-label">Telephone</label>
-                    <input type="number" class="form-control" id="inputNumber">
-                </div>
-                <div class="col-12">
-                    <label for="inputAdresse" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAdresse">
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
-            </form>
+            <div class="container px-2">
+                <form action="index.php?module=Connexion&action=inscription" method="post" enctype="multipart/form-data">
 
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="inputEmail" id="idEmail" placeholder="exemple@exemple.exemple" required>
+                    </div>
 
+                    <div class="mb-3">
+                        <label for="inputLogin" class="form-label">Login</label>
+                        <input type="text" class="form-control" name="inputLogin" id="idLogin" placeholder="exemple: login123" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputPassword" class="form-label">Mot de passe</label>
+                        <input type="password" name="inputPassword" id="idPassword" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Nom</label>
+                        <input type="text" name="inputName" id="idName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputNumber" class="form-label">Telephone</label>
+                        <input type="number" name="inputNumber" id="idNumber" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputAdresse" class="form-label">Adresse</label>
+                        <input type="text" name="inputAdresse" id="idAdresse" required>
+                    </div>
+                    <button type="submit" value="Envoyer" class="btn btn-primary">M'inscrire</button>
+                </form>
+            </div>
             <?php
-
         }
+
     }
 ?>

@@ -16,10 +16,15 @@
 		public function inscription() {
 			$email = $_POST["inputEmail"];
 			$login = $_POST["inputLogin"];
-			$mdp = $_POST["inputPassword"];
+			$mdp = password_hash($_POST["inputPassword"], PASSWORD_DEFAULT);
 			$nom = $_POST["inputName"];
 			$numTel = $_POST["inputNumber"];
 			$adresse = $_POST["inputAdresse"];
+
+			$ajout = self::$bdd->prepare('INSERT INTO `Utilisateur` (`login`, `mdp`, `nom`, `numTel`, `email`, `adresse`, `idRole`) 
+											VALUES (?, ?, ?, ?, ?, ?, 1)');
+
+			$ajout->execute(array($login, $mdp, $nom, $numTel, $email, $adresse));
 
 		}
 

@@ -32,7 +32,7 @@ class ContConnexion extends ContGenerique {
                 $this->deconnexion();
                 break;
             case 'inscription' :
-                $this->for_inscription();
+                $this->inscription();
         }
     }
 
@@ -49,7 +49,11 @@ class ContConnexion extends ContGenerique {
     }
 
     public function inscription() {
-        $this->modele->inscription();
+        $this->vue->form_inscription();
+        if (isset($_POST['inputLogin'])) {
+            $this->modele->inscription();
+        }
+
     }
 }
 ?>

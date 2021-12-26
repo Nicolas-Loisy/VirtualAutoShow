@@ -34,10 +34,7 @@ class VueMenu{
                     else{
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Inscription</a>
+                            <a class="nav-link" href="index.php?module=Connexion&action=connexion">Connexion</a>
                         </li>
                         <?php
                     }
