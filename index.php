@@ -24,6 +24,10 @@
 			require_once 'modules/mod_connexion/mod_connexion.php';
 			$module = new modConnexion();
 			break;
+		case "administrationConstructeur":
+			require_once 'modules/mod_administrationConstructeur/mod_administrationConstructeur.php';
+			$module = new modAdministrationConstructeur();
+			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
 			$module = new modAccueil();

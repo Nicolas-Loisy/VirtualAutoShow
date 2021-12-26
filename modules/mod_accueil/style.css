@@ -1,0 +1,27 @@
+#hero {
+	background-color: #1c0068;
+	padding-top: 50px;
+}
+
+#carouselExampleIndicators {
+	width: 50%;
+	margin: auto;
+}
+
+img {
+	border-radius: 6px;
+}
+
+h2 {
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+}
+
+h3 {
+	color: white;
+}
+
+#recommandation {
+	height: 1080px;
+}

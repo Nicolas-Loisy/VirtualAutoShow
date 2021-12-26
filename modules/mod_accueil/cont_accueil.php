@@ -10,7 +10,11 @@ class ContAccueil extends ContGenerique {
     public function __construct() {
         $this->vue = new VueAccueil();
 
-        $this->vue->msgTest();
+        $this->vue->affichagePage();
+    }
+
+    public function lienFeuilleCSS() {
+        $this->vue->lienFeuilleCSS();
     }
 }
 
