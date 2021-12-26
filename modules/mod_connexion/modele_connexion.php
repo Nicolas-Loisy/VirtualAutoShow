@@ -13,6 +13,16 @@
 			echo "Vous êtes déconnecté!";
 		}
 
+		public function inscription() {
+			$email = $_POST["inputEmail"];
+			$login = $_POST["inputLogin"];
+			$mdp = $_POST["inputPassword"];
+			$nom = $_POST["inputName"];
+			$numTel = $_POST["inputNumber"];
+			$adresse = $_POST["inputAdresse"];
+
+		}
+
 		public function connexion(){
 			$identifiant = $_POST["nomUtilisateur"];
 			$psswd = $_POST["mdp"];

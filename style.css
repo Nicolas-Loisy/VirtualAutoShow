@@ -13,6 +13,10 @@ a{
 	font-size: 30px;
 	color: darkgreen;
 }
+#lienInscription{
+	text-color: black;
+	font-size: 5px;
+}
 
 #idAcrea {
 	color: blue;

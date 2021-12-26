@@ -31,6 +31,8 @@ class ContConnexion extends ContGenerique {
             case 'deconnexion':
                 $this->deconnexion();
                 break;
+            case 'inscription' :
+                $this->for_inscription();
         }
     }
 
@@ -44,6 +46,10 @@ class ContConnexion extends ContGenerique {
 
     public function deconnexion(){
         $this->modele->deconnexion();
+    }
+
+    public function inscription() {
+        $this->modele->inscription();
     }
 }
 ?>
