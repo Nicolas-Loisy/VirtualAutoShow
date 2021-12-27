@@ -27,22 +27,22 @@
 
                     <div class="mb-3">
                         <label for="idPassword" class="form-label">Mot de passe</label>
-                        <input type="password" name="inputPassword" id="idPassword" required>
+                        <input type="password" class="form-control" name="inputPassword" id="idPassword" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="idName" class="form-label">Nom</label>
-                        <input type="text" name="inputName" id="idName" required>
+                        <input type="text" class="form-control" name="inputName" id="idName" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="idNumber" class="form-label">Telephone</label>
-                        <input type="number" name="inputNumber" id="idNumber" required>
+                        <input type="number" class="form-control" name="inputNumber" id="idNumber" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="idAdresse" class="form-label">Adresse</label>
-                        <input type="text" name="inputAdresse" id="idAdresse" required>
+                        <input type="text" class="form-control" name="inputAdresse" id="idAdresse" required>
                     </div>
                     <button type="submit" value="Envoyer" class="btn btn-primary">M'inscrire</button>
                 </form>
