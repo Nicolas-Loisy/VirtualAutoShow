@@ -5,7 +5,7 @@
 	session_start();
 	require_once 'connexion.php';
 	Connexion::initConnexion();
-	//commit
+		
 	$affichage = null;
 	$choixModule = null;
 	if (isset($_GET['module']))
@@ -27,6 +27,10 @@
 		case "administrationConstructeur":
 			require_once 'modules/mod_administrationConstructeur/mod_administrationConstructeur.php';
 			$module = new modAdministrationConstructeur();
+			break;
+		case "administration":
+			require_once 'modules/mod_administration/mod_administration.php';
+			$module = new modAdministration();
 			break;
 		case "Inscription":
 			require_once 'modules/mod_inscription/mod_inscription.php';
