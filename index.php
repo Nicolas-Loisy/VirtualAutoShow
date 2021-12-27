@@ -28,6 +28,10 @@
 			require_once 'modules/mod_administrationConstructeur/mod_administrationConstructeur.php';
 			$module = new modAdministrationConstructeur();
 			break;
+		case "Inscription":
+			require_once 'modules/mod_inscription/mod_inscription.php';
+			$module = new ModInscription();
+			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
 			$module = new modAccueil();

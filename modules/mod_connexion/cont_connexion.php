@@ -31,8 +31,6 @@ class ContConnexion extends ContGenerique {
             case 'deconnexion':
                 $this->deconnexion();
                 break;
-            case 'inscription' :
-                $this->inscription();
         }
     }
 
@@ -48,12 +46,5 @@ class ContConnexion extends ContGenerique {
         $this->modele->deconnexion();
     }
 
-    public function inscription() {
-        $this->vue->form_inscription();
-        if (isset($_POST['inputLogin'])) {
-            $this->modele->inscription();
-        }
-
-    }
 }
 ?>

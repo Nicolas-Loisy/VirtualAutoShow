@@ -36,6 +36,9 @@ class VueMenu{
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?module=Connexion&action=connexion">Connexion</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?module=Inscription&action=inscription">Inscription</a>
+                        </li>
                         <?php
                     }
                     ?>
