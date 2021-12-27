@@ -28,6 +28,10 @@
 			require_once 'modules/mod_administrationConstructeur/mod_administrationConstructeur.php';
 			$module = new modAdministrationConstructeur();
 			break;
+		case "listeMarque":
+			require_once 'modules/mod_listeMarque/mod_listeMarque.php';
+			$module = new ModListeMarque();
+			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
 			$module = new modAccueil();

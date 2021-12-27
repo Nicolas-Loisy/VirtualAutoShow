@@ -48,7 +48,9 @@ class VueAccueil extends VueGenerique {
             <h3 class="text-center p-4">Venez approcher de plus près une de nos 1000 voitures, et laissez votre esprit prendre le volant !</h3>
 
             <div class="d-flex justify-content-center pb-4">
-                <button type="button" class="btn btn-lg btn-primary">Accéder au Showroom</button>
+                <a href="index.php?module=listeMarque">
+                    <button type="button" class="btn btn-lg btn-primary">Accéder au Showroom</button>
+                </a>
             </div>
         </section>
 
