@@ -28,6 +28,10 @@
 			require_once 'modules/mod_administrationConstructeur/mod_administrationConstructeur.php';
 			$module = new modAdministrationConstructeur();
 			break;
+		case "administration":
+			require_once 'modules/mod_administration/mod_administration.php';
+			$module = new modAdministration();
+			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
 			$module = new modAccueil();
