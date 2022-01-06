@@ -26,13 +26,13 @@ class VueAccueil extends VueGenerique {
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/Ferrari_488_Pista_2018_0cb07.jpg" class="d-block w-100" alt="Ferrari 488 Pista">
+                        <img src="img/imgVoiture/Ferrari_488_Pista_2018_0cb07.jpg" class="d-block w-100" alt="Ferrari 488 Pista">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/806587_1.jpg" class="d-block w-100" alt="Jaguar E-Type">
+                        <img src="img/imgVoiture/806587_1.jpg" class="d-block w-100" alt="Jaguar E-Type">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/vu2a002ba7v71.jpg" class="d-block w-100" alt="Koenigsegg One:1">
+                        <img src="img/imgVoiture/vu2a002ba7v71.jpg" class="d-block w-100" alt="Koenigsegg One:1">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -5,6 +5,8 @@
 	session_start();
 	require_once 'connexion.php';
 	Connexion::initConnexion();
+
+	//$_SESSION['role'] = 2;
 		
 	$affichage = null;
 	$choixModule = null;
