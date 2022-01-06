@@ -10,7 +10,7 @@
 
         public function menu(){
             ?>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link " href=?module=administrationConstructeur&action=ajoutVoiture>Ajout Voiture</a>
                     </li>

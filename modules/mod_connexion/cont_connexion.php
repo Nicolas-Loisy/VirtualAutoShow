@@ -21,8 +21,9 @@ class ContConnexion extends ContGenerique {
                 if (!isset($_SESSION['login'])) {
                     $this->form_connexion();
                 } else {
-                    echo "Vous êtes déjà connecté : ";
-                    echo $_SESSION['login'];
+                    $this->messageDejaConnecte();
+                    //echo "Vous êtes déjà connecté : ";
+                    //echo $_SESSION['login'];
                 }
                 break;
             case 'connecter':
@@ -44,6 +45,10 @@ class ContConnexion extends ContGenerique {
 
     public function deconnexion(){
         $this->modele->deconnexion();
+    }
+
+    public function messageDejaConnecte(){
+        $this->vue->messageDejaConnecte();
     }
 
 }
