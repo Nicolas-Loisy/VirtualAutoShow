@@ -15,12 +15,19 @@
             $numTel = $_POST["inputNumber"];
             $adresse = $_POST["inputAdresse"];
 
-            $ajout = self::$bdd->prepare('INSERT INTO `Utilisateur` (`login`, `mdp`, `nom`, `numTel`, `email`, `adresse`, `idRole`) 
-											VALUES (?, ?, ?, ?, ?, ?, 1)');
+            $ajout = self::$bdd->prepare('INSERT INTO utilisateur (login, mdp, nom, numTel, email, adresse, idRole) VALUES (?, ?, ?, ?, ?, ?, 1)');
 
-            $ajout->execute(array($login, $mdp, $nom, $numTel, $email, $adresse));
+            $variable = $ajout->execute(array($login, $mdp, $nom, $numTel, $email, $adresse));
+            //echo $variable;
+            if ($variable != 1) {
+                echo "Ce login est déja utilisé, essayez un autre.";
+            }
+            else {
+                echo "Inscription accéptée.";
+            }
 
         }
+
     }
 
     ?>
