@@ -8,8 +8,11 @@
 		}
 
 		public function ajoutVoiture(){
+            //POUR LES TESTS
+            //$_SESSION['id_user']=2; $_SESSION['role']=2; $_SESSION['id_Constructeur']=1;
+
 			if(isset($_FILES['image'])){
-				$dossier = 'images_voitures/';
+				$dossier = 'img/imgVoiture/';
 				$fichier = basename($_FILES['image']['name']);
 
 				$extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -30,7 +33,7 @@
 							try{
 								self::$bdd->beginTransaction();
 
-								$req = self::$bdd->prepare('INSERT INTO Voiture(nomVoiture, description, nbPlace, volume, volumeCoffre, vitesseMax, autonomie, moteur, idConstructeur) VALUES (?,?,?,?,?,?,?,?,?)');
+								$req = self::$bdd->prepare('INSERT INTO Voiture(nomVoiture, description, nbPlace, poids, volumeCoffre, vitesseMax, autonomie, moteur, idConstructeur) VALUES (?,?,?,?,?,?,?,?,?)');
 
 			                         //role admin
 								if ($_SESSION['role']==3){    
@@ -48,10 +51,10 @@
 										throw new Exception("Erreur, la marque n'existe pas dans la base de données.", 1);         
 									}
 
-									$req->execute(array($_POST['nomModele'],$_POST['Description'],$_POST['nbPlace'],$_POST['volume'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'], $resultIdConstru['idConstructeur']));
+									$req->execute(array($_POST['nomModele'],$_POST['Description'],$_POST['nbPlace'],$_POST['poids'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'], $resultIdConstru['idConstructeur']));
 								}else{
 			                         //role constructeur
-									$req->execute(array($_POST['nomModele'],$_POST['Description'],$_POST['nbPlace'],$_POST['volume'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'],$_SESSION['id_user']));
+									$req->execute(array($_POST['nomModele'],$_POST['Description'],$_POST['nbPlace'],$_POST['poids'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'],$_SESSION['id_Constructeur']));
 								}
 
 								$req2 = self::$bdd->prepare('INSERT INTO Photo(photo, idVoiture) VALUES (?,?)');
@@ -108,9 +111,9 @@
 			    }else{
 			        try{
 			            self::$bdd->beginTransaction();
-			            $reqUpdateVoiture = self::$bdd->prepare('UPDATE Voiture SET description=?, nbPlace=?, volume=?, volumeCoffre=?, vitesseMax=?, autonomie=?, moteur=? WHERE nomVoiture=? ');
+			            $reqUpdateVoiture = self::$bdd->prepare('UPDATE Voiture SET description=?, nbPlace=?, poids=?, volumeCoffre=?, vitesseMax=?, autonomie=?, moteur=? WHERE nomVoiture=? ');
 
-			            $reqUpdateVoiture->execute(array($_POST['Description'],$_POST['nbPlace'],$_POST['volume'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'],$_POST['nomModele']));
+			            $reqUpdateVoiture->execute(array($_POST['Description'],$_POST['nbPlace'],$_POST['poids'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'],$_POST['nomModele']));
 
 			            echo "Modification effectuée.";
 
@@ -141,7 +144,7 @@
 			        echo "Vous n'avez pas les droits pour ajouter une image à ce modèle de voiture.";
 			    }else{
 			        if(isset($_FILES['image'])){
-			            $dossier = 'images_voitures/';
+			            $dossier = 'img/imgVoiture/';
 			            $fichier = basename($_FILES['image']['name']);
 
 			            $extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -270,7 +273,7 @@
 			            $reqPhotoVoiture->execute(array($resultId['idVoiture']));
 			            $resultPhotoVoiture = $reqPhotoVoiture->fetchall();
 
-			            $dossier = 'images_voitures/';
+			            $dossier = 'img/imgVoiture/';
 
 			            try {
 			                foreach($resultPhotoVoiture as $row => $photo){

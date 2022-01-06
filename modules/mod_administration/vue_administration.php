@@ -73,8 +73,8 @@
                         </div>
 
                         <div class="col-auto">
-                            <label for="inputVolume" class="form-label">Volume total voiture (m3)</label>
-                            <input type="number" class="form-control" name="volume" id="inputVolume" required>
+                            <label for="inputPoids" class="form-label">Poids total voiture (kg)</label>
+                            <input type="number" class="form-control" name="poids" id="inputPoids" required>
                         </div>
 
                         <div class="col-auto">
@@ -151,8 +151,8 @@
                         </div>
 
                         <div class="col-auto">
-                            <label for="inputVolume" class="form-label">Volume total voiture (m3)</label>
-                            <input type="number" class="form-control" name="volume" id="inputVolume" required>
+                            <label for="inputPoids" class="form-label">Poids total voiture (kg)</label>
+                            <input type="number" class="form-control" name="poids" id="inputPoids" required>
                         </div>
 
                         <div class="col-auto">
