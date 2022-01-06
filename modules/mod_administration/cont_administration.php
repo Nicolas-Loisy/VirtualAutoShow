@@ -3,6 +3,12 @@
 	if (!defined('CONST_INCLUDE'))
 		die('Accès non-autorisé.');
 
+    if (!isset($_SESSION['role'])) {
+        die('Accès non-autorisé.');
+    }else if ($_SESSION['role']!=3) {
+        die('Accès non-autorisé.');
+    }
+
 	require_once 'cont_generique.php';
 	include 'vue_administration.php';
 	include 'modele_administration.php';

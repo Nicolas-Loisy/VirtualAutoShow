@@ -22,22 +22,37 @@ class VueMenu{
                     </li>
                     <?php
                     if(isset($_SESSION['login'])){
+                        if($_SESSION['role']==2){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?module=administrationConstructeur">Administration</a>
+                            </li>
+                            <?php
+                        }
+                        if($_SESSION['role']==3){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="?module=administration">Administration</a>
+                            </li>
+                            <?php
+                        }
+
                         ?>
-                        <span class="navbar-text">
-				        	bienvenue <?=$_SESSION['login']?>
-				        </span>
+                        <!--<span class="navbar-text">
+				        	bienvenue <?//=$_SESSION['login']?>
+				        </span> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Déconnexion</a>
+                            <a class="nav-link" href="?module=Connexion&action=deconnexion">Déconnexion</a>
                         </li>
                         <?php
                     }
                     else{
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=Connexion&action=connexion">Connexion</a>
+                            <a class="nav-link" href="?module=Connexion&action=connexion">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=Inscription&action=inscription">Inscription</a>
+                            <a class="nav-link" href="?module=Inscription&action=inscription">Inscription</a>
                         </li>
                         <?php
                     }

@@ -61,7 +61,7 @@
 								echo "Ajout réussi!";
 
 								//redirection de la page apres 2sec
-					            header( "refresh:2; url=index.php?module=administrationConstructeur&action=ajoutVoiture" );
+					            header( "refresh:2; url=index.php?module=administration&action=ajoutVoiture" );
 			
 							}catch(PDOException $e){
 								self::$bdd->rollback();
