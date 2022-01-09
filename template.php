@@ -14,13 +14,15 @@
 	</head>
 	<body>
 		<header>
-        <?php
-            $compMenu->getControleur()->afficherMenu();
-        ?>
+            <?php
+                $compMenu->getControleur()->afficherMenu();
+            ?>
 		</header>
-		<?php
-			echo $affichage;
-		?>
+        <main>
+            <?php
+            echo $affichage;
+            ?>
+        </main>
 		<footer>
             <figure class="text-center">
                 <blockquote class="blockquote">

@@ -8,38 +8,31 @@ include 'vue_listeVoiture.php';
 include 'modele_listeVoiture.php';
 
 class ContListeVoiture extends ContGenerique {
-    public $action;
 
     public function __construct (){
         $this->vue = new VueListeVoiture();
         $this->modele = new ModeleListeVoiture();
+    }
 
-        $this->action = $_GET['action'];
+    public function lienFeuilleCSS() {
+        $this->vue->lienFeuilleCSS();
+    }
 
-        switch ($this->action) {
-            case "bienvenue":
-                $this->bienvenue();
-                break;
-            case "liste":
-                $this->liste();
-                break;
-            case "details":
-                $this->afficheDescription();
-                break;
+    public function genererListeDeVoiture($idConstr) {
+        $voituresBD = $this->modele->recupererVoituresBD($idConstr);
+
+        // Si il y a 0 voitures, on arrete la fonction
+        if(count($voituresBD) == 0)
+            return;
+
+        $nomMarque = $this->modele->recupererNomConstr($idConstr);
+        $this->vue->ouvertureListe($nomMarque[0]["marque"]);
+
+        foreach ($voituresBD as $cle => $val) {
+            $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
         }
-    }
 
-    public function bienvenue(){
-        ?><p>Bienvenue.</p><?php
-    }
-
-    public function liste(){
-        $tab = $this->modele->getListe();
-        $this->vue->affiche_liste($tab);
-    }
-
-    public function afficheDescription(){
-        $this->vue->affiche_details($this->modele->getDescription());
+        $this->vue->fermetureListe();
     }
 }
 ?>

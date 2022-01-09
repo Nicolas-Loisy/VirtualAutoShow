@@ -1,0 +1,12 @@
+img {
+    width: 100%;
+}
+
+#grille {
+    margin: auto;
+    max-width: 1000px;
+}
+
+.fondLogo {
+    background-color: #f7f7f7;
+}

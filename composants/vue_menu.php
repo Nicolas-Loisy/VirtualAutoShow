@@ -18,7 +18,7 @@ class VueMenu{
                         <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Showroom</a>
+                        <a class="nav-link" href="index.php?module=listeMarque">Showroom</a>
                     </li>
                     <?php
                     if(isset($_SESSION['login'])){

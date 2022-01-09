@@ -26,13 +26,13 @@ class VueAccueil extends VueGenerique {
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/Ferrari_488_Pista_2018_0cb07.jpg" class="d-block w-100" alt="Ferrari 488 Pista">
+                        <img src="img/imgVoiture/Ferrari_488_Pista_2018_0cb07.jpg" class="d-block w-100" alt="Ferrari 488 Pista">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/806587_1.jpg" class="d-block w-100" alt="Jaguar E-Type">
+                        <img src="img/imgVoiture/806587_1.jpg" class="d-block w-100" alt="Jaguar E-Type">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/vu2a002ba7v71.jpg" class="d-block w-100" alt="Koenigsegg One:1">
+                        <img src="img/imgVoiture/vu2a002ba7v71.jpg" class="d-block w-100" alt="Koenigsegg One:1">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -48,7 +48,9 @@ class VueAccueil extends VueGenerique {
             <h3 class="text-center p-4">Venez approcher de plus près une de nos 1000 voitures, et laissez votre esprit prendre le volant !</h3>
 
             <div class="d-flex justify-content-center pb-4">
-                <button type="button" class="btn btn-lg btn-primary">Accéder au Showroom</button>
+                <a href="index.php?module=listeMarque">
+                    <button type="button" class="btn btn-lg btn-primary">Accéder au Showroom</button>
+                </a>
             </div>
         </section>
 

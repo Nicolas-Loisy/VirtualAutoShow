@@ -1,0 +1,41 @@
+#grille {
+    margin: auto;
+    /*max-width: 1200px;*/
+}
+
+img {
+    width: 100%;
+}
+
+.fond {
+    background-color: #f7f7f7;
+}
+
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+span {
+    height: 20vh;
+    display: inline-block;
+    /*white-space: nowrap;      /*keep text on one line */
+    overflow: hidden;         /*prevent text from being shown outside the border */
+    text-overflow: ellipsis;
+
+    /* Fondu bas paragraphe */
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
