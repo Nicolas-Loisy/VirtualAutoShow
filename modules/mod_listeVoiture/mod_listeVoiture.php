@@ -8,6 +8,8 @@ include 'cont_listeVoiture.php';
 class ModListeVoiture extends ModGenerique {
     public function __construct (){
         $this->controleur = new ContListeVoiture();
+
+        $this->controleur->genererListeDeVoiture($_GET["idConstr"]);
     }
 }
 ?>

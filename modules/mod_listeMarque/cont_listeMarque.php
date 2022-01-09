@@ -21,16 +21,16 @@ class ContListeMarque extends ContGenerique {
 
     private function genererGrilleDeLogos() {
         // $logosConstructeurs un tableau DE TUPLES, donc tab en 2D
-        $logosConstructeurs = $this->modele->recupererLogosConstructeurs();
+        $constructeursBD = $this->modele->recupererConstructeursBD();
 
         // Si il y a 0 images, on arrete la fonction
-        if(count($logosConstructeurs) == 0)
+        if(count($constructeursBD) == 0)
             return;
 
         $this->vue->ouvrirGrilleBootstrap();
 
-        foreach ($logosConstructeurs as $cle => $val) {
-            $this->vue->genererColonneBootstrap($val["logoMarque"]);
+        foreach ($constructeursBD as $cle => $val) {
+            $this->vue->genererColonneBootstrap($val["logoMarque"], $val["idConstructeur"]);
         }
 
         $this->vue->fermerGrilleBootstrap();

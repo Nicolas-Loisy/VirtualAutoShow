@@ -8,19 +8,18 @@
 		public function __construct(){
 		}
 
-		public function getListe() {
-			$selecPrepare = self::$bdd->prepare('select id,nom from equipes');
-			$selecPrepare->execute();
-			$result = $selecPrepare->fetchall();
-			return $result;
+		public function recupererNomConstr($idConstr)
+		{
+			$objRequete = self::$bdd->prepare("SELECT marque FROM Constructeur WHERE idConstructeur=?");
+			$objRequete->execute(array($idConstr));
+			return $objRequete->fetchAll();
 		}
 
-		public function getDescription() {
-			$tab = array($_GET['id']);
-			$selectPrepare = self::$bdd->prepare('select * from equipes WHERE id=?');
-			$selectPrepare->execute($tab);
-			$result = $selectPrepare->fetchall();
-			return $result;
-		}
-	}	
+        public function recupererVoituresBD($idConstr)
+        {
+			$objRequete = self::$bdd->prepare("SELECT idVoiture, photo, nomVoiture, description FROM Voiture NATURAL JOIN Photo WHERE photo LIKE '%overview%' AND idConstructeur=?");
+			$objRequete->execute(array($idConstr));
+			return $objRequete->fetchAll();
+        }
+    }
 ?>
