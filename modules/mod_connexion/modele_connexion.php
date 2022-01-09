@@ -39,7 +39,7 @@
 			$identifiant = $_POST["nomUtilisateur"];
 			$psswd = $_POST["mdp"];
 
-			$requete = self::$bdd->prepare('SELECT * FROM utilisateur LEFT JOIN constructeur ON utilisateur.idUtilisateur = constructeur.idUtilisateur WHERE login = ?');
+			$requete = self::$bdd->prepare('SELECT * FROM Utilisateur LEFT JOIN Constructeur ON Utilisateur.idUtilisateur = Constructeur.idUtilisateur WHERE login = ?');
 			$requete->execute(array($identifiant));
 			$resultat = $requete->fetch();
 
@@ -47,6 +47,7 @@
 
 	         //echo $psswd;
 	         //echo $resultat['pwd_user'];
+             //echo password_hash("mdpYacine",  PASSWORD_DEFAULT);
 			$isPasswordCorrect = password_verify($psswd, $resultat['mdp']);
 
 			if (!$resultat){

@@ -34,7 +34,7 @@
 
 			                         //role admin
 								if ($_SESSION['role']==3){    
-									$reqIdConstru = self::$bdd->prepare('SELECT * FROM constructeur WHERE marque = ?');
+									$reqIdConstru = self::$bdd->prepare('SELECT * FROM Constructeur WHERE marque = ?');
 									$reqIdConstru->execute(array($_POST['nomMarque']));
 
 									$resultIdConstru = $reqIdConstru->fetch();
@@ -47,6 +47,10 @@
 			                                   //print "La marque n'existe pas dans la base de données.";
 										throw new Exception("Erreur, la marque n'existe pas dans la base de données.", 1);         
 									}
+
+                                    var_dump($_POST['nomModele']);
+                                    var_dump($_POST['Description']);
+                                    var_dump($resultIdConstru['idConstructeur']);
 
 									$req->execute(array($_POST['nomModele'],$_POST['Description'],$_POST['nbPlace'],$_POST['poids'],$_POST['volumeCoffre'],$_POST['vitesseMax'],$_POST['autonomie'],$_POST['moteur'], $resultIdConstru['idConstructeur']));
 								}else{
@@ -94,7 +98,7 @@
 
 		public function modifVoiture(){
 			try{
-			    $reqIdUser = self::$bdd->prepare('SELECT * FROM voiture NATURAL JOIN constructeur WHERE nomVoiture = ?');
+			    $reqIdUser = self::$bdd->prepare('SELECT * FROM Voiture NATURAL JOIN Constructeur WHERE nomVoiture = ?');
 			    $reqIdUser->execute(array($_POST['nomModele']));
 			    $resultIdUser = $reqIdUser->fetch();
 			    //echo "id: ".$resultIdUser['idUtilisateur'];
@@ -129,7 +133,7 @@
 
 		public function supprVoiture(){
 			try{
-			    $reqId = self::$bdd->prepare('SELECT * FROM voiture NATURAL JOIN constructeur WHERE nomVoiture = ?');
+			    $reqId = self::$bdd->prepare('SELECT * FROM Voiture NATURAL JOIN Constructeur WHERE nomVoiture = ?');
 			    $reqId->execute(array($_POST['nomModele']));
 			    $resultId = $reqId->fetch();
 			    //echo "id: ".$resultId['idUtilisateur'];
@@ -143,17 +147,17 @@
 			    }else{
 			        try{ 
 			            self::$bdd->beginTransaction(); 
-			            $reqSuppHashtag = self::$bdd->prepare('DELETE FROM estliee WHERE idVoiture = ?');
+			            $reqSuppHashtag = self::$bdd->prepare('DELETE FROM Estliee WHERE idVoiture = ?');
 			            $reqSuppHashtag->execute(array($resultId['idVoiture']));
 
-			            $reqSuppFollow = self::$bdd->prepare('DELETE FROM suivremodele WHERE idVoiture = ?');
+			            $reqSuppFollow = self::$bdd->prepare('DELETE FROM Suivremodele WHERE idVoiture = ?');
 			            $reqSuppFollow->execute(array($resultId['idVoiture']));
 
-			            $reqSuppComm = self::$bdd->prepare('DELETE FROM commentaire WHERE idVoiture = ?');
+			            $reqSuppComm = self::$bdd->prepare('DELETE FROM Commentaire WHERE idVoiture = ?');
 			            $reqSuppComm->execute(array($resultId['idVoiture']));
 
 			            //Avant supp dans la BD supp les photos dans le dossier
-			            $reqPhotoVoiture = self::$bdd->prepare('SELECT * FROM photo WHERE idVoiture = ?');
+			            $reqPhotoVoiture = self::$bdd->prepare('SELECT * FROM Photo WHERE idVoiture = ?');
 			            $reqPhotoVoiture->execute(array($resultId['idVoiture']));
 			            $resultPhotoVoiture = $reqPhotoVoiture->fetchall();
 
@@ -166,10 +170,10 @@
 			            } catch (Exception $e) {
 			                print "Error!: " . $e->getMessage() . "</br>";     
 			            }
-			            $reqSuppPhoto = self::$bdd->prepare('DELETE FROM photo WHERE idVoiture = ?');
+			            $reqSuppPhoto = self::$bdd->prepare('DELETE FROM Photo WHERE idVoiture = ?');
 			            $reqSuppPhoto->execute(array($resultId['idVoiture']));
 
-			            $reqSuppVoiture = self::$bdd->prepare('DELETE FROM voiture WHERE idVoiture = ?');
+			            $reqSuppVoiture = self::$bdd->prepare('DELETE FROM Voiture WHERE idVoiture = ?');
 			            $reqSuppVoiture->execute(array($resultId['idVoiture']));
 
 			            echo "Suppression réussi!";
@@ -209,10 +213,10 @@
 							try{
 								self::$bdd->beginTransaction();
 
-								$req = self::$bdd->prepare('INSERT INTO constructeur(marque, logoMarque, idUtilisateur) VALUES (?,?,?)');
+								$req = self::$bdd->prepare('INSERT INTO Constructeur(marque, logoMarque, idUtilisateur) VALUES (?,?,?)');
 
 			                         //verification si marque existe deja et Login valide
-								$reqMarque = self::$bdd->prepare('SELECT * FROM constructeur WHERE marque = ?');
+								$reqMarque = self::$bdd->prepare('SELECT * FROM Constructeur WHERE marque = ?');
 								$reqMarque->execute(array($_POST['marque']));
 								$resultMarque = $reqMarque->fetch();
 
@@ -221,7 +225,7 @@
 									throw new Exception("Erreur, la marque existe déjà dans la base de données.", 1);         
 								}
 
-								$reqUtilisateur = self::$bdd->prepare('SELECT * FROM utilisateur WHERE login = ?');
+								$reqUtilisateur = self::$bdd->prepare('SELECT * FROM Utilisateur WHERE login = ?');
 								$reqUtilisateur->execute(array($_POST['login']));
 								$resultUtilisateur = $reqUtilisateur->fetch();
 
@@ -229,7 +233,7 @@
 									throw new Exception("Erreur, le login n'existe pas dans la base de données.", 1);
 								}
 								if ($resultUtilisateur['idRole'] == 1) {
-									$reqUpdateIdRole = self::$bdd->prepare('UPDATE utilisateur SET idRole = 2 WHERE login = ?');
+									$reqUpdateIdRole = self::$bdd->prepare('UPDATE Utilisateur SET idRole = 2 WHERE login = ?');
 									$reqUpdateIdRole->execute(array($_POST['login']));     
 								}
 
@@ -258,10 +262,10 @@
 			    try{
 			        self::$bdd->beginTransaction();
 
-			        $req = self::$bdd->prepare('UPDATE constructeur SET idUtilisateur = ? WHERE marque = ?');
+			        $req = self::$bdd->prepare('UPDATE Constructeur SET idUtilisateur = ? WHERE marque = ?');
 
 			        //verification si marque existe deja et Login valide
-			        $reqMarque = self::$bdd->prepare('SELECT * FROM constructeur WHERE marque = ?');
+			        $reqMarque = self::$bdd->prepare('SELECT * FROM Constructeur WHERE marque = ?');
 			        $reqMarque->execute(array($_POST['marque']));
 			        $resultMarque = $reqMarque->fetch();
 
@@ -270,7 +274,7 @@
 			            throw new Exception("Erreur, la marque n'existe pas dans la base de données.", 1);         
 			        }
 
-			        $reqUtilisateur = self::$bdd->prepare('SELECT * FROM utilisateur WHERE login = ?');
+			        $reqUtilisateur = self::$bdd->prepare('SELECT * FROM Utilisateur WHERE login = ?');
 			        $reqUtilisateur->execute(array($_POST['login']));
 			        $resultUtilisateur = $reqUtilisateur->fetch();
 
@@ -280,24 +284,24 @@
 
 			        //update role utilisateur a constructeur
  			        if ($resultUtilisateur['idRole'] == 1) {
-			            $reqUpdateIdRole = self::$bdd->prepare('UPDATE utilisateur SET idRole = 2 WHERE login = ?');
+			            $reqUpdateIdRole = self::$bdd->prepare('UPDATE Utilisateur SET idRole = 2 WHERE login = ?');
 			            $reqUpdateIdRole->execute(array($_POST['login']));     
 			        }
 			        $req->execute(array($resultUtilisateur['idUtilisateur'], $_POST['marque']));
 
 			        //update role utilisateur a DroitUtilisateur s'il n'est plus responsable d'aucune marque
-			        $reqPrecResponsable = self::$bdd->prepare('SELECT * FROM constructeur WHERE idUtilisateur = ?');
+			        $reqPrecResponsable = self::$bdd->prepare('SELECT * FROM Constructeur WHERE idUtilisateur = ?');
 			        $reqPrecResponsable->execute(array($resultMarque['idUtilisateur']));
 			        $resultPrecResponsable = $reqPrecResponsable->fetch();
 
 			        //recup role prec responsable constructeur
-		    	    $reqCheckRolePrec = self::$bdd->prepare('SELECT * FROM utilisateur WHERE idUtilisateur = ?');
+		    	    $reqCheckRolePrec = self::$bdd->prepare('SELECT * FROM Utilisateur WHERE idUtilisateur = ?');
 			        $reqCheckRolePrec->execute(array($resultMarque['idUtilisateur']));
 			        $resultCheckRolePrec = $reqCheckRolePrec->fetch();          
 
 			        if ($resultCheckRolePrec['idRole'] == 2) {
 			            if (is_null($resultPrecResponsable['marque'])) {
-			                $reqUpdateIdRolePreced = self::$bdd->prepare('UPDATE utilisateur SET idRole = 1 WHERE idUtilisateur = ?');
+			                $reqUpdateIdRolePreced = self::$bdd->prepare('UPDATE Utilisateur SET idRole = 1 WHERE idUtilisateur = ?');
 			                $reqUpdateIdRolePreced->execute(array($resultMarque['idUtilisateur']));
 			            }
 			        }

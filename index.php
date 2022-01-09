@@ -40,10 +40,6 @@
 			require_once 'modules/mod_inscription/mod_inscription.php';
 			$module = new ModInscription();
 			break;
-		case "administration":
-			require_once 'modules/mod_administration/mod_administration.php';
-			$module = new modAdministration();
-			break;
 		default:
 			require_once 'modules/mod_accueil/mod_accueil.php';
 			$module = new modAccueil();

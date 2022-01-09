@@ -45,7 +45,7 @@
         public function ouvertureListe($nomMarque)
         {
             ?>
-            <div id="grille" class="mt-3">
+            <div id="grille" class="mt-3 mb-5">
                 <div class="container border-bottom mb-3">
                     <h2><?=$nomMarque?></h2>
                 </div>

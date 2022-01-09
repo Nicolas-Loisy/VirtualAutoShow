@@ -20,7 +20,7 @@ class VueListeMarque extends VueGenerique {
 
     public function ouvrirGrilleBootstrap() {
         ?>
-        <div id="grille" class="mt-4">
+        <div id="grille" class="my-4">
             <div class="container">
                 <div class="row row-cols-4 row-cols-lg-6">
         <?php
