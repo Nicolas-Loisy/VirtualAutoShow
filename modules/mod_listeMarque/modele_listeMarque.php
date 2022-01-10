@@ -9,7 +9,7 @@ class ModeleListeMarque extends Connexion {
     }
 
     public function recupererConstructeursBD() {
-        $objRequete = self::$bdd->prepare("SELECT idConstructeur, logoMarque FROM Constructeur ORDER BY marque");
+        $objRequete = self::$bdd->prepare("SELECT idConstructeur, logoMarque FROM constructeur ORDER BY marque");
         $objRequete->execute();
         $tuples = $objRequete->fetchAll();
         return $tuples;
