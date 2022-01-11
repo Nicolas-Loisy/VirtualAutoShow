@@ -14,7 +14,7 @@
 			if(isset($_FILES['image'])){
 				$dossier = 'img/imgVoiture/';
 				$fichier = basename($_FILES['image']['name']);
-                $fichier = "photoGeneral".$fichier;
+                $fichier = "overview_".$fichier;
 
 				$extensions = array('.png', '.gif', '.jpg', '.jpeg');
 				$extension = strrchr($_FILES['image']['name'], '.');

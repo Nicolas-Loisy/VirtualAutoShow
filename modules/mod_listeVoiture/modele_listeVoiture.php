@@ -17,7 +17,7 @@
 
         public function recupererVoituresBD($idConstr)
         {
-			$objRequete = self::$bdd->prepare("SELECT idVoiture, photo, nomVoiture, description FROM voiture NATURAL JOIN Photo WHERE photo LIKE '%overview%' AND idConstructeur=?");
+			$objRequete = self::$bdd->prepare("SELECT idVoiture, photo, nomVoiture, description FROM voiture NATURAL JOIN photo WHERE photo LIKE '%overview%' AND idConstructeur=?");
 			$objRequete->execute(array($idConstr));
 			return $objRequete->fetchAll();
         }

@@ -28,7 +28,7 @@ a:active {
     color: inherit;
 }
 
-span {
+.descr {
     height: 20vh;
     display: inline-block;
     /*white-space: nowrap;      /*keep text on one line */

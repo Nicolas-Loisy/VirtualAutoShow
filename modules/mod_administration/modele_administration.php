@@ -10,7 +10,7 @@
 		public function ajoutVoiture(){
 			if(isset($_FILES['image'])){
 				$dossier = 'img/imgVoiture/';
-				$fichier = basename($_FILES['image']['name']);
+				$fichier = 'overview_'.basename($_FILES['image']['name']);
 
 				$extensions = array('.png', '.gif', '.jpg', '.jpeg');
 				$extension = strrchr($_FILES['image']['name'], '.');

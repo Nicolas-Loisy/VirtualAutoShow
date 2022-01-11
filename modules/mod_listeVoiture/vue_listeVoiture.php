@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-6 col-md-8">
                                         <h3><?=$nomVoiture?></h3>
-                                        <span>
+                                        <span class="descr">
                                             <?=$description?>
                                         </span>
                                     </div>

@@ -4,8 +4,8 @@ if (!defined('CONST_INCLUDE'))
     die('Accès non-autorisé.');
 
 require_once 'cont_generique.php';
-include 'vue_listeVoiture.php';
-include 'modele_listeVoiture.php';
+include 'modules/mod_listeVoiture/vue_listeVoiture.php';
+include 'modules/mod_listeVoiture/modele_listeVoiture.php';
 
 class ContListeVoiture extends ContGenerique {
 
