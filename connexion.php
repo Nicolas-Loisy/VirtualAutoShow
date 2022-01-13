@@ -26,7 +26,7 @@
 			if (!isset($_SESSION["token"])) {
 				$_SESSION["token"] = bin2hex(random_bytes(2));
 				//TOKEN EXPIRATION
-				$_SESSION["token-expire"] = time() + 50; // 1 heure = 3600 secs
+				$_SESSION["token-expire"] = time() + 3600; // 1 heure = 3600 secs
 			} /*else if (time() >= $_SESSION["token-expire"]) {
 				$_SESSION["token"] = bin2hex(random_bytes(2));
 				//TOKEN EXPIRATION
