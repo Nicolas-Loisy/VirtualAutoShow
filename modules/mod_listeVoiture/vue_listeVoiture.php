@@ -61,5 +61,12 @@
             <link rel="stylesheet" type="text/css" href="modules/mod_listeVoiture/style.css">
             <?php
         }
+
+        public function msgAucuneVoitureMarque()
+        {
+            ?>
+            <p class="text-center">Elles arrivent très prochainement... vous les verrez c'est promis !</p>
+            <?php
+        }
     }
 ?>
