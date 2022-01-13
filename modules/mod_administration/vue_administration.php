@@ -112,7 +112,7 @@
                         <label for="formFile" class="form-label">Choisir une image </label>
                         <input class="form-control" type="file" name="image" id="formFile" required>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Ajouter</button>
                 </form>
             </div>
@@ -184,7 +184,7 @@
                           <option value="E85">E85</option>
                         </select>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Modifier</button>
                 </form>
             </div>
@@ -214,8 +214,9 @@
                             <p>Voulez-vous vraiment supprimer cette voiture?</p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" value="Envoyer" class="btn btn-danger">Supprimer</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+                              <button type="submit" value="Envoyer" class="btn btn-danger">Supprimer</button>
                           </div>
                         </div>
                       </div>
@@ -245,7 +246,7 @@
                         <label for="formFile" class="form-label">Choisir l'image du logo de la marque</label>
                         <input class="form-control" type="file" name="image" id="formFile" required>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Ajouter</button>
                 </form>
             </div>
@@ -266,7 +267,7 @@
                         <label for="inputLogin" class="form-label">Login utilisateur du nouveau responsable</label>
                         <input type="text" class="form-control" name="login" id="inputLogin" placeholder="Login" required>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Modifier</button>
                 </form>
             </div>

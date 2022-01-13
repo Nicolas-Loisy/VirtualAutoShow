@@ -21,7 +21,6 @@
                         <input type="password" class="form-control" id="InputPassword" name="mdp" aria-describedby="mdpHelp">
                         <div id="mdpHelp" class="form-text">Ne communiquez jamais votre mot de passe.</div>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Se connecter</button>
                 </form>
                 <a class="nav-link" href="?module=Inscription&action=inscription">Nouveau? Inscrivez-vous ici</a>

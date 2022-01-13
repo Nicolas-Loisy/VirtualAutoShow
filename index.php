@@ -3,6 +3,14 @@
 	define('CONST_INCLUDE', NULL);
 
 	session_start();
+
+	//ACTUALISATION TOKEN EXPIRATION
+	if (isset($_SESSION["token"])) {
+		if (time() < $_SESSION["token-expire"]) {
+			$_SESSION["token-expire"] = time() + 50; // 1 heure = 3600 secs
+		}
+	}
+
 	require_once 'connexion.php';
 	Connexion::initConnexion();
 		

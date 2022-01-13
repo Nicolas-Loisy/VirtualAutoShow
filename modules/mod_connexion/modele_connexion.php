@@ -14,6 +14,9 @@
 			unset($_SESSION['role']);
 			unset($_SESSION['id_Constructeur']);
 
+            unset($_SESSION['token']);
+            unset($_SESSION['token-expire']);
+
 			//echo "Vous êtes déconnecté!";
 			?>
 			<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -44,10 +47,6 @@
 			$resultat = $requete->fetch();
 
 	         // Comparaison du pass envoyé via le formulaire avec la base
-
-	         //echo $psswd;
-	         //echo $resultat['pwd_user'];
-             //echo password_hash("mdpYacine",  PASSWORD_DEFAULT);
 			$isPasswordCorrect = password_verify($psswd, $resultat['mdp']);
 
 			if (!$resultat){
@@ -71,6 +70,9 @@
 					if ($_SESSION['role'] == 2){
 						$_SESSION['id_Constructeur'] = $resultat['idConstructeur'];
 					}
+
+                    //CREATION TOKEN A LA CONNEXION
+                    $this->createTocken();
 
 					?>
 					<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
