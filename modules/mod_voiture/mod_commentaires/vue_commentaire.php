@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
 class VueCommentaire {
     public function __construct(){}
 

@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
 class ContCommentaire extends ContGenerique {
     protected $vueComm;
     protected $modeleComm;

@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
 class ModeleCommentaire extends Connexion{
 
     public function __construct(){}
