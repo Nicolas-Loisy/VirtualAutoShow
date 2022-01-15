@@ -11,20 +11,18 @@ class ContCommentaire extends ContGenerique {
         $this->vueComm = new VueCommentaire();
     }
 
-    public function ajout_commentaire() {
-        //if ($_SESSION['id_user'] != null) {
-            $this->vueComm->form_commentaire();
-            if(isset($_POST['message'])) {
-                $this->modeleComm->ajout_commentaire();
-            }
-        //}
+    public function ajout_commentaire($login) {
+        $this->vueComm->form_commentaire();
+        if(isset($_POST['message'])) {
+            $this->modeleComm->ajout_commentaireModele($login);
+        }
     }
 
-    public function liste_commentaire() {
+    public function liste_commentaire($login, $role) {
         if (isset($_POST['commentaire'])) {
             $this->modeleComm->suppComm($_POST['commentaire']);
         }
-        $this->vueComm->liste_commentaire($this->modeleComm->commandeSelect());
+        $this->vueComm->liste_commentaireVue($this->modeleComm->commandeSelect(), $login, $role);
     }
 
     public function lienFeuilleCSS() {

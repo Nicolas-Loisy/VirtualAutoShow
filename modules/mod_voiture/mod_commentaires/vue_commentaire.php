@@ -18,7 +18,7 @@ class VueCommentaire {
         <?php
     }
 
-    public function liste_commentaire($tab) {
+    public function liste_commentaireVue($tab, $login, $role) {
         ?>
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
@@ -30,7 +30,7 @@ class VueCommentaire {
                     <?php
                     if (count($tab) != 0) {
                         foreach ($tab as $key => $value) {
-                            $this->affichage_commentaire($value['idCommentaire'], $value['idUtilisateur'], $value['login'], $value['contenu'], $value['datePublication']);
+                            $this->affichage_commentaire($login, $role, $value['idCommentaire'], $value['login'], $value['contenu'], $value['datePublication']);
                         }
                     }
 
@@ -42,25 +42,10 @@ class VueCommentaire {
 
         <?php
 
-        /*for ($lines = 0; $lines <= count($tab1); $lines++):
-            for ($col = 0; $col <= count($tab); $col++):
-                echo " coucou";
-            /*$login = self::$bdd->prepare('SELECT login FROM `utilisateur` where idUtilisateur = ?');
-            $login->execute($val['idUtilisateur']);
-            $nom = $login->fetch();
-            echo $val['contenu'];*/
-        /*if ($tab1[$lines][0] == $tab[$col][3]) {
-            $this->affichage_commentaire($tab1[$lines][1], $tab[$col][2], $tab[$col][1]);
-        important: &idVoiture=<?=$_GET['idVoiture']?>
-        }*/
-        //endfor;
-        //endfor;
-
-
     }
 
 
-    public function affichage_commentaire($id, $utilisateur, $nom, $contenu, $date) {
+    public function affichage_commentaire($login, $role, $id, $nom, $contenu, $date) {
         ?>
         <div class="card p-3 mt-2">
             <div class="d-flex justify-content-between align-items-center">
@@ -75,14 +60,14 @@ class VueCommentaire {
             <div class="action d-flex justify-content-between mt-2 align-items-center">
                 <div class="reply px-4">
                     <?php
-                    //if ($_SESSION['id_user'] == $utilisateur || $_SESSION['role'] == 3) {?>
+                    if ($login == $nom || $role == 3) {?>
                     <form action="?module=voiture" method="post">
                         <input type="hidden" id="idComm" name="commentaire" value=<?=$id?>>
                         <button type="submit" value="Envoyer" class="btn btn-primary btn-sm">Delete</button>
                     </form>
 
                     <?php
-                    //} ?>
+                    } ?>
                 </div>
                 <div class="icons align-items-center">
                     <i class="fa fa-check-circle-o check-icon text-primary"></i>

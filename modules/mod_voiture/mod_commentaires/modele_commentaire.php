@@ -4,16 +4,24 @@ class ModeleCommentaire extends Connexion{
 
     public function __construct(){}
 
-    public function ajout_commentaire() {
+    public function ajout_commentaireModele($login) {
+        $requeteUtil = self::$bdd->prepare('SELECT idUtilisateur from utilisateur where login = ?');
+        $requeteUtil->execute(array($login));
+        $iduser = $requeteUtil->fetch();
 
-        $requeteFinal = self::$bdd->prepare('INSERT INTO `commentaire` (`contenu`, `idUtilisateur`, `idVoiture`, `idConstructeur`) VALUES (?, 3, 56, 24)');
-        $requeteFinal->execute(array($_POST['message']/*, $_SESSION['id_user'], $_GET['idVoiture'], $_SESSION['id_Constructeur']*/));
+        $requeteConstruc = self::$bdd->prepare('SELECT idConstructeur from voiture where idVoiture = ?');
+        $requeteConstruc->execute(array($_GET['idVoiture']));
+        $idConst = $requeteConstruc->fetch();
+
+
+        $requeteFinal = self::$bdd->prepare('INSERT INTO `commentaire` (`contenu`, `idUtilisateur`, `idVoiture`, `idConstructeur`) VALUES (?, ?, ?, ?)');
+        $requeteFinal->execute(array($_POST['message'], $iduser['idUtilisateur'], $_GET['idVoiture'], $idConst['idConstructeur']));
     }
 
     public function commandeSelect() {
-        //$tab = array($_GET['idVoiture']);
+        $tab = array($_GET['idVoiture']);
         $selectPrepare = self::$bdd->prepare('SELECT idCommentaire, idUtilisateur, contenu, datePublication, login FROM commentaire natural join utilisateur where commentaire.idVoiture = ? order by datePublication');
-        $selectPrepare->execute(array(56));
+        $selectPrepare->execute(array($tab));
         $result = $selectPrepare->fetchall();
         return $result;
     }
