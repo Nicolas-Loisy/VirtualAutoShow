@@ -47,7 +47,8 @@
 
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Marque modèle 3" required>
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Marque modèle 3" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
                     </div>
 
                     <div class="mb-3">
@@ -112,7 +113,7 @@
                         <label for="formFile" class="form-label">Choisir une image </label>
                         <input class="form-control" type="file" name="image" id="formFile" required>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Ajouter</button>
                 </form>
             </div>
@@ -125,7 +126,8 @@
                 <form action="?module=administrationConstructeur&action=modifVoiture" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture à modifier" required>
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture à modifier" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
                     </div>
                     
                     <div class="mb-3">
@@ -184,7 +186,7 @@
                           <option value="E85">E85</option>
                         </select>
                     </div>
-
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Modifier</button>
                 </form>
             </div>
@@ -197,15 +199,16 @@
                 <form action="?module=administrationConstructeur&action=ajoutImageVoiture" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture où il faut ajouter l'image" required>
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture où il faut ajouter l'image" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
                     </div>
                     
                     <div class="mb-3">
                         <input type="hidden" name="MAX_FILE_SIZE" value="500000000"/>
                         <label for="formFile" class="form-label">Choisir une image </label>
                         <input class="form-control" type="file" name="image" id="formFile" required>
-                    </div>                    
-
+                    </div>
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Ajouter l'image</button>
                 </form>
             </div>
@@ -218,14 +221,15 @@
                 <form action="?module=administrationConstructeur&action=ajoutHashtag" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture où il faut ajouter l'hashtag" required>
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture où il faut ajouter l'hashtag" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
                     </div>
                     
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
                         <input type="text" class="form-control" name="textHashtag" placeholder="Hashtag" aria-label="Hashtag" aria-describedby="basic-addon1" required>
-                    </div>                   
-
+                    </div>
+                    <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
                     <button type="submit" value="Envoyer" class="btn btn-primary">Ajouter l'hashtag</button>
                 </form>
             </div>
@@ -238,8 +242,9 @@
                 <form action="?module=administrationConstructeur&action=supprVoiture" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le modèle de la voiture à supprimer" required>
-                    </div>                
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le modèle de la voiture à supprimer" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
+                    </div>
 
                     <button type="button" value="Envoyer" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer</button>
 
@@ -255,8 +260,9 @@
                             <p>Voulez-vous vraiment supprimer cette voiture?</p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" value="Envoyer" class="btn btn-danger">Supprimer</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+                              <button type="submit" value="Envoyer" class="btn btn-danger">Supprimer</button>
                           </div>
                         </div>
                       </div>

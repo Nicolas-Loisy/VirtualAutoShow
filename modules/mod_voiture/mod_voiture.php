@@ -7,10 +7,7 @@ include 'cont_voiture.php';
 
 class ModVoiture extends ModGenerique {
     public $affichage;
-    /*
-        require_once 'connexion.php';
-        Connexion::initConnexion();
-    */
+
     public function __construct (){
         $this->controleur = new ContVoiture();
     }

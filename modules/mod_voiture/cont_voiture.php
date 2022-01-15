@@ -7,56 +7,38 @@ require_once 'cont_generique.php';
 include 'vue_voiture.php';
 include 'modele_voiture.php';
 
+// Appeler les méthodes du controleur dans le constructeur ou dans le module, c'est pareil, pas d'importance.
 class ContVoiture extends ContGenerique {
-    public $action;
 
     public function __construct () {
         $this->vue = new VueVoiture();
         $this->modele = new ModeleVoiture();
 
-        $this->vue->menu();
+        if (isset($_POST['message']))
+            $this->vue->bandeauConfirmationPublicCom();
 
-        $this->action = $_GET['action'];
-
-        switch ($this->action) {
-            case "bienvenue":
-                $this->bienvenue();
-                break;
-            case "liste":
-                $this->liste();
-                break;
-            case "details":
-                $this->afficheDescription();
-                break;
-            case "ajout":
-                if (!isset($_POST['nomVoiture'])) {
-                    $this->form_ajout();
-                }
-                else{
-                    $this->ajout();
-                }
+        // Récupération des données dans la BD
+        $donneesPrincipaleVoiture = $this->modele->getDonneesVoiturePrincipale();
+        if (!$donneesPrincipaleVoiture) {       // $donneesPrincipaleVoiture vide = booléen à faux
+            $this->vue->msgAucuneVoiture();
+            return;
         }
+        $hashtagVoiture = $this->modele->getHashtagVoit();
+        $photoDetailsVoiture = $this->modele->getPhotoDetails();
+
+        // Affichage des infos
+        $this->vue->sectionOverview($donneesPrincipaleVoiture);
+        if (count($hashtagVoiture)>0)
+            $this->vue->sectionHashtag($hashtagVoiture);
+        $this->vue->sectionDescr($donneesPrincipaleVoiture);
+        $this->vue->sectionCaracteristiques($donneesPrincipaleVoiture);
+        if (count($photoDetailsVoiture)>0)
+            $this->vue->sectionPhotoDetails($photoDetailsVoiture);
+        $this->vue->espace();
     }
 
-    public function bienvenue(){
-        ?><p>Bienvenue!</p><?php
-    }
-
-    public function liste(){
-        $tab = $this->modele->getListe();
-        $this->vue->affiche_liste($tab);
-    }
-
-    public function afficheDescription(){
-        $this->vue->affiche_details($this->modele->getDescription());
-    }
-
-    public function form_ajout(){
-        $this->vue->form_ajout();
-    }
-
-    public function ajout(){
-        $this->modele->ajout();
+    public function lienFeuilleCSS() {
+        $this->vue->lienFeuilleCSS();
     }
 }
 ?>

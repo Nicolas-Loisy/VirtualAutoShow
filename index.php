@@ -3,6 +3,14 @@
 	define('CONST_INCLUDE', NULL);
 
 	session_start();
+
+	//ACTUALISATION TOKEN EXPIRATION
+	if (isset($_SESSION["token"])) {
+		if (time() < $_SESSION["token-expire"]) {
+			$_SESSION["token-expire"] = time() + 3600; // 1 heure = 3600 secs
+		}
+	}
+
 	require_once 'connexion.php';
 	Connexion::initConnexion();
 		
@@ -31,6 +39,10 @@
 		case "listeMarque":
 			require_once 'modules/mod_listeMarque/mod_listeMarque.php';
 			$module = new ModListeMarque();
+			break;
+		case "voiture":
+			require_once 'modules/mod_voiture/mod_voiture.php';
+			$module = new ModVoiture();
 			break;
 		case "administration":
 			require_once 'modules/mod_administration/mod_administration.php';

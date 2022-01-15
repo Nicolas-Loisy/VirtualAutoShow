@@ -22,8 +22,10 @@ class ContListeVoiture extends ContGenerique {
         $voituresBD = $this->modele->recupererVoituresBD($idConstr);
 
         // Si il y a 0 voitures, on arrete la fonction
-        if(count($voituresBD) == 0)
+        if(count($voituresBD) == 0) {
+            $this->vue->msgAucuneVoitureMarque();
             return;
+        }
 
         $nomMarque = $this->modele->recupererNomConstr($idConstr);
         $this->vue->ouvertureListe($nomMarque[0]["marque"]);

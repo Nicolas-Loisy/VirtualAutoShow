@@ -29,43 +29,42 @@
 				$this->action= "ajoutVoiture";
 			}
 
-
-			if (!isset($_POST['nomModele'])) {
+			if (isset($_POST['nomModele']) || isset($_POST['marque'])) {
                 switch ($this->action) {
-		            case "ajoutVoiture":
-		                $this->form_ajoutVoiture();
-		                break;
-		            case "modifVoiture":
-		                $this->form_modifVoiture();
-		                break;
-		            case "supprVoiture":
-		                $this->form_supprVoiture();
-		                break;
-		            case "ajoutConstructeur":
-		                $this->form_ajoutConstructeur();
-		                break;
-		            case "modifResponsableConstructeur":
-		                $this->form_modifResponsableConstructeur();
-		                break;
-		        }
+                    case "ajoutVoiture":
+                        $this->ajoutVoiture();
+                        break;
+                    case "modifVoiture":
+                        $this->modifVoiture();
+                        break;
+                    case "supprVoiture":
+                        $this->supprVoiture();
+                        break;
+                    case "ajoutConstructeur":
+                        $this->ajoutConstructeur();
+                        break;
+                    case "modifResponsableConstructeur":
+                        $this->modifResponsableConstructeur();
+                        break;
+                }
             }else{
                 switch ($this->action) {
-		            case "ajoutVoiture":
-		                $this->ajoutVoiture();
-		                break;
-		            case "modifVoiture":
-			            $this->modifVoiture();
-			            break;
-			        case "supprVoiture":
-			            $this->supprVoiture();
-			            break;
-			        case "ajoutConstructeur":
-		                $this->ajoutConstructeur();
-		                break;
-		            case "modifResponsableConstructeur":
-		                $this->modifResponsableConstructeur();
-		                break;
-            	}
+                    case "ajoutVoiture":
+                        $this->form_ajoutVoiture();
+                        break;
+                    case "modifVoiture":
+                        $this->form_modifVoiture();
+                        break;
+                    case "supprVoiture":
+                        $this->form_supprVoiture();
+                        break;
+                    case "ajoutConstructeur":
+                        $this->form_ajoutConstructeur();
+                        break;
+                    case "modifResponsableConstructeur":
+                        $this->form_modifResponsableConstructeur();
+                        break;
+                }
             }
 
 		}
