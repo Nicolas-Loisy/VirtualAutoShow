@@ -40,6 +40,10 @@
 			require_once 'modules/mod_listeMarque/mod_listeMarque.php';
 			$module = new ModListeMarque();
 			break;
+		case "voiture":
+			require_once 'modules/mod_voiture/mod_voiture.php';
+			$module = new ModVoiture();
+			break;
 		case "administration":
 			require_once 'modules/mod_administration/mod_administration.php';
 			$module = new modAdministration();

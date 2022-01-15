@@ -1,0 +1,24 @@
+img {
+    width: 100%;
+}
+
+.fondGris {
+    background-color: #f7f7f7;
+}
+
+table {
+    text-align: center;
+}
+
+#grille {
+    margin: auto;
+    max-width: 1200px;
+}
+
+#grille img {
+    max-width: 400px;
+}
+
+#grille a {
+    margin: auto;
+}
