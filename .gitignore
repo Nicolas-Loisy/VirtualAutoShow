@@ -1,7 +1,3 @@
 *.sql
 templates/
 /AENVOYERSURDISCORD/warningAjoutHashtag
-/.idea/.gitignore
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/VirtualAutoShow.iml
