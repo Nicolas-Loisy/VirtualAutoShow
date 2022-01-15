@@ -33,5 +33,20 @@
 		</footer>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	</body>
+        <script>
+            function showHint(str) {
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    const xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onload = function() {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                    xmlhttp.open("GET", "suggestionAjax.php?q=" + str);
+                    xmlhttp.send();
+                }
+            }
+        </script>
+    </body>
 </html>

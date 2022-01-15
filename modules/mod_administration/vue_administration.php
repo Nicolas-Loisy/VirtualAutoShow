@@ -125,7 +125,8 @@
                 <form action="?module=administration&action=modifVoiture" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture à modifier" required>
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le nom du modèle de la voiture à modifier" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
                     </div>
                     
                     <div class="mb-3">
@@ -197,8 +198,9 @@
                 <form action="?module=administration&action=supprVoiture" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le modèle de la voiture à supprimer" required>
-                    </div>                
+                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Indiquer le modèle de la voiture à supprimer" required>
+                        <p>Suggestions : <span id="txtHint"></span></p>
+                    </div>
 
                     <button type="button" value="Envoyer" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer</button>
 
