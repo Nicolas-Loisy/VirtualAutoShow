@@ -3,8 +3,9 @@
 		die('Accès non-autorisé.');
 
 	require_once "connexion.php";
+    require_once "modele_generique.php";
 
-	class ModeleConnexion extends Connexion{
+	class ModeleConnexion extends ModeleGenerique {
 		public function __construct(){
 		}
 

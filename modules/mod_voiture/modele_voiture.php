@@ -3,8 +3,9 @@
 if (!defined('CONST_INCLUDE'))
 	die('Accès non-autorisé.');
 
-require_once "connexion.php";
-class ModeleVoiture extends Connexion{
+require_once "modele_generique.php";
+
+class ModeleVoiture extends ModeleGenerique {
 	public function __construct(){
 	}
 

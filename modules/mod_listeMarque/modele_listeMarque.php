@@ -3,7 +3,9 @@
 if (!defined('CONST_INCLUDE'))
     die('Accès non-autorisé.');
 
-class ModeleListeMarque extends Connexion {
+require_once "modele_generique.php";
+
+class ModeleListeMarque extends ModeleGenerique {
     public function __construct() {
 
     }
