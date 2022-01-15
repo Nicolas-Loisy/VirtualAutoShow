@@ -216,6 +216,10 @@
                                     $reqUpdateIdRole->execute(array($_POST['login']));
                                 }
                                 $req->execute(array($_POST['marque'], $fichier, $resultUtilisateur['idUtilisateur']));
+
+                                echo "Ajout réussi!";
+                                //redirection de la page apres 2sec
+                                header("refresh:2; url=index.php?module=administration&action=ajoutConstructeur");
                             } catch (Exception $e) {
                                 unlink($dossier . $fichier);
                                 die('Erreur : ' . $e->getMessage());
@@ -274,7 +278,9 @@
                             $reqUpdateIdRolePreced->execute(array($resultMarque['idUtilisateur']));
                         }
                     }
-                    print "Mise à jour réussi!";
+                    echo "Mise à jour réussi!";
+                    //redirection de la page apres 2sec
+                    header("refresh:2; url=index.php?module=administration&action=modifResponsableConstructeur");
                 } catch (Exception $e) {
                     die('Erreur : ' . $e->getMessage());
                 }

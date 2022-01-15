@@ -6,6 +6,7 @@ if (!defined('CONST_INCLUDE'))
 require_once 'cont_generique.php';
 include 'vue_voiture.php';
 include 'modele_voiture.php';
+include 'mod_commentaires/mod_commentaire.php';
 
 // Appeler les méthodes du controleur dans le constructeur ou dans le module, c'est pareil, pas d'importance.
 class ContVoiture extends ContGenerique {
@@ -13,6 +14,7 @@ class ContVoiture extends ContGenerique {
     public function __construct () {
         $this->vue = new VueVoiture();
         $this->modele = new ModeleVoiture();
+        $this->modComm = new ModCommentaire();
 
         if (isset($_POST['message']))
             $this->vue->bandeauConfirmationPublicCom();
@@ -35,6 +37,13 @@ class ContVoiture extends ContGenerique {
         if (count($photoDetailsVoiture)>0)
             $this->vue->sectionPhotoDetails($photoDetailsVoiture);
         $this->vue->espace();
+        if(isset($_SESSION['login'])) {
+            $this->modComm->getControleur()->ajout_commentaire($_SESSION['login']);
+            $this->modComm->getControleur()->liste_commentaire($_SESSION['login'], $_SESSION['role']);
+        }
+        else {
+            $this->modComm->getControleur()->liste_commentaire(null, null);
+        }
     }
 
     public function lienFeuilleCSS() {
