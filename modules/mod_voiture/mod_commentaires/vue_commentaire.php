@@ -61,7 +61,7 @@ class VueCommentaire {
                 <div class="reply px-4">
                     <?php
                     if ($login == $nom || $role == 3) {?>
-                    <form action="?module=voiture" method="post">
+                    <form action="?module=voiture&idVoiture=<?=$_GET['idVoiture']?>" method="post">
                         <input type="hidden" id="idComm" name="commentaire" value=<?=$id?>>
                         <button type="submit" value="Envoyer" class="btn btn-primary btn-sm">Delete</button>
                     </form>

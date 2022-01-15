@@ -19,9 +19,8 @@ class ModeleCommentaire extends Connexion{
     }
 
     public function commandeSelect() {
-        $tab = array($_GET['idVoiture']);
         $selectPrepare = self::$bdd->prepare('SELECT idCommentaire, idUtilisateur, contenu, datePublication, login FROM commentaire natural join utilisateur where commentaire.idVoiture = ? order by datePublication');
-        $selectPrepare->execute(array($tab));
+        $selectPrepare->execute(array($_GET['idVoiture']));
         $result = $selectPrepare->fetchall();
         return $result;
     }

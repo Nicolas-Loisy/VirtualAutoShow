@@ -14,7 +14,7 @@ class ContVoiture extends ContGenerique {
     public function __construct () {
         $this->vue = new VueVoiture();
         $this->modele = new ModeleVoiture();
-        $modComm = new ModCommentaire();
+        $this->modComm = new ModCommentaire();
 
         if (isset($_POST['message']))
             $this->vue->bandeauConfirmationPublicCom();
@@ -38,11 +38,11 @@ class ContVoiture extends ContGenerique {
             $this->vue->sectionPhotoDetails($photoDetailsVoiture);
         $this->vue->espace();
         if(isset($_SESSION['login'])) {
-            $this->modComm->getControlleur()->ajout_commentaire($_SESSION['login']);
-            $this->modComm->getControlleur()->liste_commentaire($_SESSION['login'], $_SESSION['role']);
+            $this->modComm->getControleur()->ajout_commentaire($_SESSION['login']);
+            $this->modComm->getControleur()->liste_commentaire($_SESSION['login'], $_SESSION['role']);
         }
         else {
-            $this->modComm->getControlleur()->liste_commentaire(null, null);
+            $this->modComm->getControleur()->liste_commentaire(null, null);
         }
     }
 
