@@ -43,7 +43,7 @@
                     xmlhttp.onload = function() {
                         document.getElementById("txtHint").innerHTML = this.responseText;
                     }
-                    xmlhttp.open("GET", "suggestionAjax.php?q=" + str);
+                    xmlhttp.open("GET", "phpAjax/suggestionAjax.php?q=" + str);
                     xmlhttp.send();
                 }
             }
