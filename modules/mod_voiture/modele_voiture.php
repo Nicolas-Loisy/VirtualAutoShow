@@ -27,6 +27,46 @@ class ModeleVoiture extends ModeleGenerique {
         return $objRequete->fetchall();
     }
 
+    public function followVoiture(){
+        $requeteUtil = self::$bdd->prepare('SELECT idUtilisateur from utilisateur where login = ?');
+        $requeteUtil->execute(array($_SESSION["login"]));
+        $iduser = $requeteUtil->fetch();
 
+        $reqFollow = self::$bdd->prepare('SELECT * FROM suivremodele WHERE idUtilisateur=? AND idVoiture=?');
+        $reqFollow->execute(array($iduser['idUtilisateur'], $_GET["idVoiture"]));
+
+        $resultFollow = $reqFollow->fetch();
+
+        if (is_null($resultFollow['idUtilisateur'])) {
+            $insertFollow = self::$bdd->prepare('INSERT INTO suivremodele (`idUtilisateur`, `idVoiture`) VALUES (?,?)');
+            $insertFollow->execute(array($iduser['idUtilisateur'], $_GET["idVoiture"]));
+        }else{
+            $deleteFollow = self::$bdd->prepare('DELETE FROM suivremodele WHERE idUtilisateur = ? AND idVoiture = ?');
+            $deleteFollow->execute(array($iduser['idUtilisateur'], $_GET["idVoiture"]));
+        }
+    }
+
+    public function followMarque(){
+        $reqIdConstructeur = self::$bdd->prepare('SELECT idConstructeur FROM voiture WHERE idVoiture=?');
+        $reqIdConstructeur->execute(array($_GET["idVoiture"]));
+        $resultIdConstructeur = $reqIdConstructeur->fetch();
+
+        $requeteUtil = self::$bdd->prepare('SELECT idUtilisateur from utilisateur where login = ?');
+        $requeteUtil->execute(array($_SESSION["login"]));
+        $iduser = $requeteUtil->fetch();
+
+        $reqFollow = self::$bdd->prepare('SELECT * FROM suivreconstructeur WHERE idUtilisateur=? AND idConstructeur=?');
+        $reqFollow->execute(array($iduser['idUtilisateur'], $resultIdConstructeur['idConstructeur']));
+
+        $resultFollow = $reqFollow->fetch();
+
+        if (is_null($resultFollow['idUtilisateur'])) {
+            $insertFollow = self::$bdd->prepare('INSERT INTO suivreconstructeur (`idUtilisateur`, `idConstructeur`) VALUES (?,?)');
+            $insertFollow->execute(array($iduser['idUtilisateur'], $resultIdConstructeur['idConstructeur']));
+        }else{
+            $deleteFollow = self::$bdd->prepare('DELETE FROM suivreconstructeur WHERE idUtilisateur = ? AND idConstructeur = ?');
+            $deleteFollow->execute(array($iduser['idUtilisateur'], $resultIdConstructeur['idConstructeur']));
+        }
+    }
 }	
 ?>

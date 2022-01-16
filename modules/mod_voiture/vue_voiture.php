@@ -44,6 +44,66 @@ class VueVoiture extends VueGenerique{
         <?php
     }
 
+    public function sectionFollow(){
+        ?>
+        <div class="d-flex justify-content-center">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <form action="?module=voiture&action=followVoiture&idVoiture=<?=$_GET['idVoiture']?>" method="post" enctype="multipart/form-data">
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="followModele()"><span id="txtFollowVoiture"></span></button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="?module=voiture&action=followMarque&idVoiture=<?=$_GET['idVoiture']?>" method="post" enctype="multipart/form-data">
+                        <button type="submit"  class="btn btn-primary btn-sm" onclick="followMarque()"><span id="txtFollowMarque"></span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- verif au chargement de la page -->
+        <script>
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = function() {
+                document.getElementById("txtFollowVoiture").innerHTML = this.responseText;
+            }
+            xmlhttp.open("GET", "phpAjax/followModeleAjax.php?login=" + "<?php echo $_SESSION['login']; ?>" +"&idVoiture=" + "<?php echo $_GET['idVoiture']; ?>");
+            xmlhttp.send();
+        </script>
+        <script>
+            const xmlhttp2 = new XMLHttpRequest();
+            xmlhttp2.onload = function() {
+                document.getElementById("txtFollowMarque").innerHTML = this.responseText;
+            }
+            xmlhttp2.open("GET", "phpAjax/followMarqueAjax.php?login=" + "<?php echo $_SESSION['login']; ?>" +"&idVoiture=" + "<?php echo $_GET['idVoiture']; ?>");
+            xmlhttp2.send();
+        </script>
+
+        <!-- verif au quand clic sur bouton -->
+        <script>
+            function followModele(){
+                const xmlhttp3 = new XMLHttpRequest();
+                xmlhttp3.onload = function() {
+                    document.getElementById("txtFollowVoiture").innerHTML = this.responseText;
+                }
+                xmlhttp3.open("GET", "phpAjax/followModeleAjax.php?login=" + "<?php echo $_SESSION['login']; ?>" +"&idVoiture=" + "<?php echo $_GET['idVoiture']; ?>");
+                xmlhttp3.send();
+            }
+        </script>
+        <script>
+            function followMarque(){
+                const xmlhttp4 = new XMLHttpRequest();
+                xmlhttp4.onload = function() {
+                    document.getElementById("txtFollowMarque").innerHTML = this.responseText;
+                }
+                xmlhttp4.open("GET", "phpAjax/followMarqueAjax.php?login=" + "<?php echo $_SESSION['login']; ?>" +"&idVoiture=" + "<?php echo $_GET['idVoiture']; ?>");
+                xmlhttp4.send();
+            }
+        </script>
+        <?php
+    }
+
+
     public function sectionHashtag($hashtagVoiture){
         ?>
         <div class="container mt-1">
@@ -140,7 +200,5 @@ class VueVoiture extends VueGenerique{
         <div class="my-5"></div>
         <?php
     }
-
-
 }
 ?>

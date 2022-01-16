@@ -16,6 +16,17 @@ class ContVoiture extends ContGenerique {
         $this->modele = new ModeleVoiture();
         $this->modComm = new ModCommentaire();
 
+        if(isset($_GET['action'])){
+            switch ($_GET['action']) {
+                case "followVoiture":
+                    $this->modele->followVoiture();
+                    break;
+                case "followMarque":
+                    $this->modele->followMarque();
+                    break;
+            }
+        }
+
         if (isset($_POST['message']))
             $this->vue->bandeauConfirmationPublicCom();
 
@@ -30,6 +41,9 @@ class ContVoiture extends ContGenerique {
 
         // Affichage des infos
         $this->vue->sectionOverview($donneesPrincipaleVoiture);
+        if (isset($_SESSION['login']))
+            $this->vue->sectionFollow();
+
         if (count($hashtagVoiture)>0)
             $this->vue->sectionHashtag($hashtagVoiture);
         $this->vue->sectionDescr($donneesPrincipaleVoiture);
