@@ -14,7 +14,7 @@ $reqFollow->execute(array($iduser['idUtilisateur'], $resultIdConstructeur['idCon
 //$reqFollow->execute(array(1, 18));
 $resultFollow = $reqFollow->fetch();
 
-if (is_null($resultFollow['idUtilisateur'])) {
+if (!$resultFollow) {
   //pas follow
   echo "Suivre la Marque";
 }else{

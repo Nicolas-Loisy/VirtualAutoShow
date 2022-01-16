@@ -37,7 +37,7 @@ class ModeleVoiture extends ModeleGenerique {
 
         $resultFollow = $reqFollow->fetch();
 
-        if (is_null($resultFollow['idUtilisateur'])) {
+        if (!$resultFollow) {
             $insertFollow = self::$bdd->prepare('INSERT INTO suivremodele (`idUtilisateur`, `idVoiture`) VALUES (?,?)');
             $insertFollow->execute(array($iduser['idUtilisateur'], $_GET["idVoiture"]));
         }else{
@@ -60,7 +60,7 @@ class ModeleVoiture extends ModeleGenerique {
 
         $resultFollow = $reqFollow->fetch();
 
-        if (is_null($resultFollow['idUtilisateur'])) {
+        if (!$resultFollow) {
             $insertFollow = self::$bdd->prepare('INSERT INTO suivreconstructeur (`idUtilisateur`, `idConstructeur`) VALUES (?,?)');
             $insertFollow->execute(array($iduser['idUtilisateur'], $resultIdConstructeur['idConstructeur']));
         }else{

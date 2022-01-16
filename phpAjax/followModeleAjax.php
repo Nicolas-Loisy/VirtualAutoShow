@@ -10,7 +10,7 @@ $reqFollow->execute(array($iduser['idUtilisateur'], $_REQUEST["idVoiture"]));
 //$reqFollow->execute(array(1, 18));
 $resultFollow = $reqFollow->fetch();
 
-if (is_null($resultFollow['idUtilisateur'])) {
+if (!$resultFollow) {
   //pas follow
   echo "Suivre la Voiture";
 }else{
