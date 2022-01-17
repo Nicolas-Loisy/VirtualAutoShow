@@ -12,11 +12,12 @@ class ContAccueil extends ContGenerique {
         $this->vue = new VueAccueil();
 
         $this->vue->affichagePage();
-        new CompRecommandation();       // Création ici du composant recommandation
+        $this->compReco = new CompRecommandation();       // Création ici du composant recommandation
     }
 
     public function lienFeuilleCSS() {
         $this->vue->lienFeuilleCSS();
+        $this->compReco->getControleur()->lienFeuilleCSS();
     }
 }
 

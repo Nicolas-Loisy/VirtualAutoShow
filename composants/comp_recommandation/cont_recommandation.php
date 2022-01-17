@@ -14,9 +14,22 @@ class ContRecommandation {
         $this->vue = new VueRecommandation();
         $this->modele = new ModeleRecommandation();
 
-        // Ton code.
-        // Récupère les infos que tu veux en utilisant ta classe modele puis affiche la liste des voitures recommandées en utilisant les fonctions de ma vue.
+        $voitureReco = $this->modele->recommandationSmart();
+
+        if(count($voitureReco) == 0) {
+            //$voitureReco = $this->modele->reco2;
+        }
+        $this->vue->ouvrirListe();
+
+        foreach ($voitureReco as $cle => $val) {
+            $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
+        }
+        $this->vue->fermetureListe();
     }
 
+
+    public function lienFeuilleCSS() {
+        $this->vue->lienFeuilleCSS();
+    }
 }
 ?>

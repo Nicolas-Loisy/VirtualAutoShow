@@ -10,6 +10,7 @@ class VueRecommandation {
     public function ouvrirListe() {
         ?>
         <div class="container mb-5">
+            <h3 >Recommandation :</h3>
         <?php
 
     }

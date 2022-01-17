@@ -11,5 +11,10 @@ class CompRecommandation {
     public function __construct (){
         $this->controleur = new ContRecommandation();
     }
+
+    public function getControleur(){
+        return $this->controleur;
+    }
+
 }
 ?>
