@@ -3,9 +3,8 @@
 	padding-top: 50px;
 }
 
-#carouselExampleIndicators {
-	width: 50%;
-	margin: auto;
+#containerCarousel {
+	max-width: 1000px;
 }
 
 .imgCarousel {
