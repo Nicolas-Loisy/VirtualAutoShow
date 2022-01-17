@@ -23,11 +23,12 @@ class ContRecommandation {
         $resultHashtagVoiture = $this->modele->recupererHashtagsDesModelesLikees();
 
         if(count($resultHashtagVoiture) == 0) {      // Si l'utilisateur connecté n'a liké aucun modèle de voiture, on affiche les derniers ajouts
-            //$voitureReco = $this->modele->reco2;
+            $this->recommanderDerniersAjouts();
         }
         else {
             $voitureReco = $this->modele->recommandationSmart($resultHashtagVoiture);
 
+            $this->vue->titreSectionRecommandation("Recommandé pour vous");
             $this->vue->ouvrirListe();
             foreach ($voitureReco as $cle => $val) {
                 $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
@@ -39,13 +40,11 @@ class ContRecommandation {
     private function recommanderDerniersAjouts() {
         $voituresBD = $this->modele->recupererDerniersAjouts();
 
-        $this->vue->titreSectionRecommandation();
+        $this->vue->titreSectionRecommandation("Derniers ajouts");
         $this->vue->ouvrirListe();
         foreach ($voituresBD as $cle => $val)
             $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
         $this->vue->fermetureListe();
-
-        // chez nico, si pas de voiture ou marque liké, appel à ma fonction
     }
 
     public function lienFeuilleCSS() {
