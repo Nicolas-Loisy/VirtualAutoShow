@@ -3,7 +3,9 @@
 if (!defined('CONST_INCLUDE'))
     die('Accès non-autorisé.');
 
-class ModeleRecommandation extends Connexion {
+require_once 'modele_generique.php';
+
+class ModeleRecommandation extends ModeleGenerique {
 
     public function recupererDerniersAjouts()
     {
