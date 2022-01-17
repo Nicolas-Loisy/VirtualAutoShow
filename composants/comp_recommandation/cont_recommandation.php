@@ -14,19 +14,26 @@ class ContRecommandation {
         $this->vue = new VueRecommandation();
         $this->modele = new ModeleRecommandation();
 
-        $voitureReco = $this->modele->recommandationSmart();
-
-        if(count($voitureReco) == 0) {
-            //$voitureReco = $this->modele->reco2;
-        }
-        $this->vue->ouvrirListe();
-
-        foreach ($voitureReco as $cle => $val) {
-            $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
-        }
-        $this->vue->fermetureListe();
+        if(isset($_SESSION['login']))
+            $this->recommanderParHashtag();
     }
 
+    private function recommanderParHashtag() {
+        $resultHashtagVoiture = $this->modele->recupererHashtagsDesModelesLikees();
+
+        if(count($resultHashtagVoiture) == 0) {      // Si l'utilisateur connecté n'a liké aucun modèle de voiture, on affiche les derniers ajouts
+            //$voitureReco = $this->modele->reco2;
+        }
+        else {
+            $voitureReco = $this->modele->recommandationSmart($resultHashtagVoiture);
+
+            $this->vue->ouvrirListe();
+            foreach ($voitureReco as $cle => $val) {
+                $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
+            }
+            $this->vue->fermetureListe();
+        }
+    }
 
     public function lienFeuilleCSS() {
         $this->vue->lienFeuilleCSS();
