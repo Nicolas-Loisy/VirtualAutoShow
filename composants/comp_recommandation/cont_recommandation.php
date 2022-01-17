@@ -16,8 +16,9 @@ class ContRecommandation {
 
         if(isset($_SESSION['login']))
             $this->recommanderParHashtag();
+        else
+            $this->recommanderDerniersAjouts();
     }
-
     private function recommanderParHashtag() {
         $resultHashtagVoiture = $this->modele->recupererHashtagsDesModelesLikees();
 
@@ -33,6 +34,18 @@ class ContRecommandation {
             }
             $this->vue->fermetureListe();
         }
+    }
+
+    private function recommanderDerniersAjouts() {
+        $voituresBD = $this->modele->recupererDerniersAjouts();
+
+        $this->vue->titreSectionRecommandation();
+        $this->vue->ouvrirListe();
+        foreach ($voituresBD as $cle => $val)
+            $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
+        $this->vue->fermetureListe();
+
+        // chez nico, si pas de voiture ou marque liké, appel à ma fonction
     }
 
     public function lienFeuilleCSS() {

@@ -7,6 +7,18 @@ class VueRecommandation {
     public function __construct (){
     }
 
+    public function titreSectionRecommandation()
+    {
+        ?>
+        <div class="container">
+            <div class="container border-bottom mb-3">
+                <h2>Derniers ajouts</h2>
+            </div>
+        </div>
+        <?php
+
+    }
+
     public function ouvrirListe() {
         ?>
         <div class="container mb-5">
