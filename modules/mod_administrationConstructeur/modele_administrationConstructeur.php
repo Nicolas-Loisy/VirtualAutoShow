@@ -203,7 +203,7 @@
                         $reqHashtag->execute(array('#' . $_POST['textHashtag'], $resultIdConstructeur['idConstructeur']));
                         $resultHashtag = $reqHashtag->fetch();
 
-                        if (is_null($resultHashtag['texte'])) {
+                        if (!$resultHashtag) {
                             //echo "L'hashtag n'existe pas";
 
                             $req2 = self::$bdd->prepare('INSERT INTO hashtag(texte, idConstructeur) VALUES (?,?)');

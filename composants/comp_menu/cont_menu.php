@@ -1,6 +1,9 @@
 <?php
-include 'modele_menu.php';
-include 'vue_menu.php';
+
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
+require_once 'vue_menu.php';
 
 class ContMenu{
     protected $vue;

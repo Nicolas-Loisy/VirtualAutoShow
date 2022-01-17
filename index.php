@@ -61,7 +61,7 @@
 	// la variable $affichage qui contient le code HTML du module s'initialise de cette manière désormais
 	$affichage = $module->getControleur()->getVue()->getAffichage();
 
-	require_once 'composants/comp_menu.php';
+	require_once 'composants/comp_menu/comp_menu.php';
 	$compMenu = new compMenu();
 	
 	/* l'affichage du site  et affiche $affichage precedemment calcule */

@@ -1,9 +1,14 @@
 <?php
+
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
+require_once 'cont_menu.php';
+
 class CompMenu{
     protected $controleur;
 
     public function __construct (){
-        include 'cont_menu.php';
         $this->controleur = new ContMenu;
     }
 

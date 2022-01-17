@@ -1,6 +1,10 @@
 <?php
-class VueMenu{
 
+if (!defined('CONST_INCLUDE'))
+    die('Accès non-autorisé.');
+
+
+class VueMenu{
     public function __construct (){
 
     }
@@ -39,8 +43,8 @@ class VueMenu{
 
                         ?>
                         <!--<span class="navbar-text">
-				        	bienvenue <?//=$_SESSION['login']?>
-				        </span> -->
+                            bienvenue <?//=$_SESSION['login']?>
+                        </span> -->
                         <li class="nav-item">
                             <a class="nav-link" href="?module=Connexion&action=deconnexion">Déconnexion</a>
                         </li>

@@ -47,8 +47,7 @@
 
                     <div class="mb-3">
                         <label for="inputModele" class="form-label">Modèle voiture</label>
-                        <input type="text" onkeyup="showHint(this.value)" class="form-control" name="nomModele" id="inputModele" placeholder="Marque modèle 3" required>
-                        <p>Suggestions : <span id="txtHint"></span></p>
+                        <input type="text" class="form-control" name="nomModele" id="inputModele" placeholder="Marque modèle 3" required>
                     </div>
 
                     <div class="mb-3">

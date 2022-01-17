@@ -14,7 +14,7 @@ class VueAccueil extends VueGenerique {
 
     public function affichagePage() {
         ?>
-        <section id="hero">
+        <div class="container-fluid" id="hero">
             <h2 class="text-center text-uppercase fs-1 lh-base p-3" >Le plus grand salon auto jamais <br>organisé dans l'histoire
             </h2>
 
@@ -52,11 +52,7 @@ class VueAccueil extends VueGenerique {
                     <button type="button" class="btn btn-lg btn-primary">Accéder au Showroom</button>
                 </a>
             </div>
-        </section>
-
-        <section id="recommandation">
-            <!-- PARTIE RECOMMENDATIONS -->
-        </section>
+        </div>
         <?php
     }
 

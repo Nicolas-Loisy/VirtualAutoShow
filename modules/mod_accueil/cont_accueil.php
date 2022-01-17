@@ -5,12 +5,14 @@ if (!defined('CONST_INCLUDE'))
 
 require_once "cont_generique.php";
 require_once "modules/mod_accueil/vue_accueil.php";
+require_once 'composants/comp_recommandation/comp_recommandation.php';
 
 class ContAccueil extends ContGenerique {
     public function __construct() {
         $this->vue = new VueAccueil();
 
         $this->vue->affichagePage();
+        new CompRecommandation();       // Création ici du composant recommandation
     }
 
     public function lienFeuilleCSS() {

@@ -28,7 +28,8 @@ class ContListeVoiture extends ContGenerique {
         }
 
         $nomMarque = $this->modele->recupererNomConstr($idConstr);
-        $this->vue->ouvertureListe($nomMarque[0]["marque"]);
+        $this->vue->afficherConstructeur($nomMarque[0]["marque"]);
+        $this->vue->ouvrirListe();
 
         foreach ($voituresBD as $cle => $val) {
             $this->vue->genererUneVoiture($val["idVoiture"], $val["photo"], $val["nomVoiture"], $val["description"]);
