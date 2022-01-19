@@ -47,7 +47,7 @@ class VueAccueil extends VueGenerique {
                 </div>
             </div>
 
-            <h3 class="text-center p-4 text-white">Venez approcher de plus près une de nos 1000 voitures, et laissez votre esprit prendre le volant !</h3>
+            <h3 class="text-center p-4 text-white">Venez découvrir l'une de nos 1000 voitures et laissez votre esprit prendre le volant !</h3>
 
             <div class="d-flex justify-content-center pb-4">
                 <a href="index.php?module=listeMarque">

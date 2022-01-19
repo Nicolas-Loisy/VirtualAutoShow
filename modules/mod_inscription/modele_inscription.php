@@ -10,11 +10,11 @@
 
         public function inscription() {
             $email = $_POST["inputEmail"];
-            $login = $_POST["inputLogin"];
+            $login = htmlspecialchars($_POST["inputLogin"], ENT_DISALLOWED);
             $mdp = password_hash($_POST["inputPassword"], PASSWORD_DEFAULT);
-            $nom = $_POST["inputName"];
+            $nom = htmlspecialchars($_POST["inputName"], ENT_DISALLOWED);
             $numTel = $_POST["inputNumber"];
-            $adresse = $_POST["inputAdresse"];
+            $adresse = htmlspecialchars($_POST["inputAdresse"], ENT_DISALLOWED);
 
             $ajout = self::$bdd->prepare('INSERT INTO utilisateur (login, mdp, nom, numTel, email, adresse, idRole) VALUES (?, ?, ?, ?, ?, ?, 1)');
 
@@ -26,9 +26,6 @@
             else {
                 echo "Inscription accéptée.";
             }
-
         }
-
     }
-
-    ?>
+?>

@@ -6,7 +6,7 @@
 
     //$bdd = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr; dbname=dutinfopw201632; port=mon_port", "dutinfopw201632", "jynuhuby");
     //$bdd = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr; dbname=dutinfopw201636; port=mon_port", "dutinfopw201636", "neqeragy");
-    $bdd = new PDO("mysql:host=localhost; dbname=localprojweb; port=3306", "root", "");
+    $bdd = new PDO("mysql:host=localhost; dbname=localprojweb6; port=3306", "root", "");
 
     $sql = 'SELECT nomVoiture FROM voiture';
     foreach($bdd->query($sql) as $row) {
@@ -35,8 +35,9 @@
           }else{
               $hint .= ", $name";
           }
+            $i+=1;
         }
-        $i+=1;
+
       }
     }
     echo $hint === "" ? "aucune suggestion" : $hint;

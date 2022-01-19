@@ -26,7 +26,8 @@
 		<footer>
             <figure class="text-center">
                 <blockquote class="blockquote">
-                    <p>Copyright : NL YB RR</p>
+                    <p>© 2022 NL YB RR. Tous droits réservés.</p>
+                    <p>Contact : projetWeb@contact.fr</p>
                 </blockquote>
                 <figcaption class="blockquote-footer">Le plus beau des footer!</figcaption>
             </figure>

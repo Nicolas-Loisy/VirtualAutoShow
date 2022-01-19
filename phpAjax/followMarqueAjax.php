@@ -1,5 +1,5 @@
 <?php
-$conn =new PDO("mysql:host=localhost; dbname=localprojweb", "root", "");
+$conn =new PDO("mysql:host=localhost; dbname=localprojweb6", "root", "");
 
 $reqIdConstructeur = $conn->prepare('SELECT idConstructeur FROM voiture WHERE idVoiture=?');
 $reqIdConstructeur->execute(array($_REQUEST["idVoiture"]));

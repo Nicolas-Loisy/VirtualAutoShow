@@ -16,9 +16,10 @@ class ModeleCommentaire extends Connexion{
         $requeteConstruc->execute(array($_GET['idVoiture']));
         $idConst = $requeteConstruc->fetch();
 
-
+        $messageSecu = htmlspecialchars($_POST['message'], ENT_DISALLOWED);
+        //echo $messageSecu;
         $requeteFinal = self::$bdd->prepare('INSERT INTO `commentaire` (`contenu`, `idUtilisateur`, `idVoiture`, `idConstructeur`) VALUES (?, ?, ?, ?)');
-        $requeteFinal->execute(array($_POST['message'], $iduser['idUtilisateur'], $_GET['idVoiture'], $idConst['idConstructeur']));
+        $requeteFinal->execute(array($messageSecu, $iduser['idUtilisateur'], $_GET['idVoiture'], $idConst['idConstructeur']));
     }
 
     public function commandeSelect() {

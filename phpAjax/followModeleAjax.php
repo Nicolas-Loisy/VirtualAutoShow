@@ -1,5 +1,5 @@
 <?php
-$conn =new PDO("mysql:host=localhost; dbname=localprojweb", "root", "");
+$conn =new PDO("mysql:host=localhost; dbname=localprojweb6", "root", "");
 
 $requeteUtil = $conn->prepare('SELECT idUtilisateur from utilisateur where login = ?');
 $requeteUtil->execute(array($_REQUEST["login"]));
