@@ -1,2 +1,2 @@
 # VirtualAutoShow
-Lien pour la visite du site : http://nicolasloisy.fr/index.php
+Lien pour la visite du site : http://nicolasloisy.fr
